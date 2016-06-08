@@ -1,7 +1,12 @@
 (function () {
     describe("sanity check tests", function () {
         it("simple math", function () {
-            expect(1 + 1).toEqual(2);
+            let expected = 2;
+            let firstValue = 1;
+            let secondValue = 2;
+            let actual = firstValue + secondValue;
+
+            expect(actual).toEqual(expected);
         });
     });
 })();
