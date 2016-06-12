@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "gulp": "gulp",
-    "karma": "karma"
+    "karma": "karma",
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
