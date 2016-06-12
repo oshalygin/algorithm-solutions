@@ -4,7 +4,8 @@
   "description": "es6 solution bucket for various hacker rank solutions",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "gulp": "gulp",
+    "karma": "karma"
   },
   "repository": {
     "type": "git",
@@ -20,12 +21,20 @@
     "babel": "^6.5.2",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "es6-shim": "^0.35.1",
     "jasmine": "^2.4.1",
-    "karma-mocha-reporter": "^2.0.3",
+    "karma": "^0.13.21",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-coverage": "^0.5.4",
+    "karma-jasmine": "^0.3.7",
+    "karma-mocha-reporter": "^1.2.2",
     "karma-phantomjs-launcher": "^1.0.0",
+    "mocha": "^2.5.3",
     "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.7",
+    "pug": "^2.0.0-beta3",
     "webpack": "^1.13.1"
   },
   "dependencies": {

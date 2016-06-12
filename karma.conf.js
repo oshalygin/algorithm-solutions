@@ -10,6 +10,12 @@ module.exports = function (config) {
         ],
         exclude: [
         ],
+        // babelPreprocessor: {
+        //     options: {
+        //         presets: ['es2015'],
+        //         sourceMap: 'inline'
+        //     }
+        // },
         preprocessors: {
             "solutions/**/*.spec.js": ["babel"]
         },
@@ -17,6 +23,7 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,
+        singleRun: true,
         browsers: ["PhantomJS"]
     });
 };
