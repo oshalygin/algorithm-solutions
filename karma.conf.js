@@ -6,6 +6,8 @@ module.exports = function (config) {
         browserNoActivityTimeout: 60000,
         browserDisconnectTolerance: 10,
         files: [
+            "node_modules/es6-shim/es6-shim.js",
+            "polyfills/array.prototype.includes.js",
             "solutions/**/*.spec.js"
         ],
         exclude: [
