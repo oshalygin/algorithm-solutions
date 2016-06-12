@@ -10,12 +10,6 @@ module.exports = function (config) {
         ],
         exclude: [
         ],
-        // babelPreprocessor: {
-        //     options: {
-        //         presets: ['es2015'],
-        //         sourceMap: 'inline'
-        //     }
-        // },
         preprocessors: {
             "solutions/**/*.spec.js": ["babel"]
         },
