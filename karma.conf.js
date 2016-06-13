@@ -1,4 +1,5 @@
 module.exports = function (config) {
+
     config.set({
         basePath: "",
         frameworks: ["jasmine"],
@@ -7,6 +8,7 @@ module.exports = function (config) {
         browserDisconnectTolerance: 10,
         files: [
             "node_modules/es6-shim/es6-shim.js",
+            "node_modules/babel-polyfill/dist/polyfill.min.js",
             "polyfills/array.prototype.includes.js",
             "solutions/**/*.spec.js"
         ],

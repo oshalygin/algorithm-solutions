@@ -41,7 +41,7 @@
 
 
 (function () {
-require("babel-polyfill")
+
     describe("Alternating Characters", () => {
 
         it("Default Case:  3, 4, 0, 0, 4", () => {
@@ -55,7 +55,7 @@ require("babel-polyfill")
             function calculateDeletions(entry) {
                 let numberOfDeletions = 0;
                 let charactersInEntry = entry.split("");
-                let currentCharacter;
+                var currentCharacter;
 
                 for (let character of charactersInEntry) {
                     if (character === currentCharacter) {
