@@ -44,37 +44,66 @@
 
     describe("Alternating Characters", () => {
 
-        it("Default Case:  3, 4, 0, 0, 4", () => {
-            let input = [5, "AAAA", "BBBBB", "ABABABAB", "BABABA", "AAABBB"];
-            const numberOfTestCases = input.shift();
-
-            function processEntry(entry) {
-
+        function testExpectation(actual, expected) {
+            for (let iterator = 0; iterator < actual.length; iterator++) {
+                expect(actual[iterator]).toEqual(expected[iterator]);
             }
+        }
 
-            function calculateDeletions(entry) {
-                let numberOfDeletions = 0;
-                let charactersInEntry = entry.split("");
-                var currentCharacter;
+        function consoleOutput(listOfDeletions) {
+            for (let countOfDeletions of listOfDeletions) {
+                console.log(countOfDeletions);
+            }
+        }
 
-                for (let character of charactersInEntry) {
-                    if (character === currentCharacter) {
-                        numberOfDeletions += 1;
-                        currentCharacter = character;
-                    }
+        function processEntries(entries) {
+            let listOfDeletions = [];
+            for (let stringEntry of entries) {
+                let numberOfDeletions = calculateDeletions(stringEntry);
+                listOfDeletions.push(numberOfDeletions);
+            }
+            return listOfDeletions;
+        }
+
+        function calculateDeletions(entry) {
+            let numberOfDeletions = 0;
+            let charactersInEntry = entry.split("");
+            let currentCharacter;
+
+            for (let character of charactersInEntry) {
+                if (character === currentCharacter) {
+                    numberOfDeletions += 1;
+
+                }
+                if (!currentCharacter) {
+                    currentCharacter = character[0];
                 }
 
-                return numberOfDeletions;
+                currentCharacter = character;
             }
+            return numberOfDeletions;
+        }
 
-            function consoleOutput(listOfDeletions) {
+        it("Default Case:  3, 4, 0, 0, 4", () => {
+            let input = [5, "AAAA", "BBBBB", "ABABABAB", "BABABA", "AAABBB"];
+            const expected = [3, 4, 0, 0, 4];
+            input.shift();
 
-            }
-
-            console.log(calculateDeletions("AAAA"));
+            let actual = processEntries(input);
+            testExpectation(actual, expected);
+            // consoleOutput(actual);
 
         });
 
-    });
+         it("Personal Case:  0, 6, 0, 0, 6", () => {
+            let input = [5, "AB", "BBBBBBB", "ABABABAB", "BABABA", "AAABBBBBAB"];
+            const expected = [0, 6, 0, 0, 6];
+            input.shift();
 
+            let actual = processEntries(input);
+            testExpectation(actual, expected);
+            // consoleOutput(actual);
+
+        });
+    });
 })();
