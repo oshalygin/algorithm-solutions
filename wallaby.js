@@ -8,7 +8,9 @@ module.exports = function (wallaby) {
         "tests": [
             "solutions/**/*.spec.js"
         ],
-
+        env: {
+            type: "node"
+        },
         testFramework: 'jasmine',
         debug: true,
         compilers: {
