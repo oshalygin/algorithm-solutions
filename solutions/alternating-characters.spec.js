@@ -85,22 +85,24 @@
         }
 
         it("Default Case:  3, 4, 0, 0, 4", () => {
-            let input = [5, "AAAA", "BBBBB", "ABABABAB", "BABABA", "AAABBB"];
+            let input = "5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB";
+            let intputArray = input.split("\n");
             const expected = [3, 4, 0, 0, 4];
-            input.shift();
+            intputArray.shift();
 
-            let actual = processEntries(input);
+            let actual = processEntries(intputArray);
             testExpectation(actual, expected);
             // consoleOutput(actual);
 
         });
 
-         it("Personal Case:  0, 6, 0, 0, 6", () => {
-            let input = [5, "AB", "BBBBBBB", "ABABABAB", "BABABA", "AAABBBBBAB"];
+        it("Personal Case:  0, 6, 0, 0, 6", () => {
+            let input = "5\nAB\nBBBBBBB\nABABABAB\nBABABA\nAAABBBBBAB";
+            let intputArray = input.split("\n");
             const expected = [0, 6, 0, 0, 6];
-            input.shift();
+            intputArray.shift();
 
-            let actual = processEntries(input);
+            let actual = processEntries(intputArray);
             testExpectation(actual, expected);
             // consoleOutput(actual);
 
