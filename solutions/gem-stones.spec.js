@@ -7,6 +7,8 @@
 // The first line consists of an integer, , the number of rocks.
 // Each of the next  lines contains a rock's composition. Each composition consists of lower-case letters of English alphabet.
 
+
+
 // Constraints
 
 // Each composition consists of only lower-case Latin letters ('a'-'z').
@@ -32,11 +34,14 @@
 (() => {
     describe("Gem Stones", () => {
 
-        function processGemStones(input) {
+        function processArray(input) {
             let inputArray = input.split("\n");
-            inputArray.unshift();
-            let inputString = inputArray.join("");
+            inputArray.shift();
+            return inputArray;
+        }
 
+        function getInputString(inputArray) {
+            return inputArray.join("");
         }
 
         function getUniqueCharacters(inputString) {
@@ -45,20 +50,56 @@
             inputArray.sort();
             uniqueCharacters.push(inputArray[0]);
 
-            for (let iterator = 0; iterator < inputArray.length; iterator++) {
-                if (uniqueCharacters[iterator] === !inputArray[0]) {
-                    uniqueCharacters.push(iterator);
+            if (inputArray.length !== 1) {
+                const secondValue = 1;
+                for (let iterator = secondValue; iterator < inputArray.length; iterator++) {
+                    let currentLengthOfUniqueCharacterArray = uniqueCharacters.length;
+                    if (inputArray[iterator] !== uniqueCharacters[currentLengthOfUniqueCharacterArray - 1]) {
+                        uniqueCharacters.push(inputArray[iterator]);
+                    }
                 }
-
             }
             return uniqueCharacters;
         }
 
+        function calculateNumberOfGemStones(uniqueCharacters, processedArray) {
+            let numberOfGemStones = 0;
 
-        it("Test Case: 3 abcdde baccd eeabg", () => {
+            for (let character of uniqueCharacters) {
+
+                let characterExists = false;
+                for (let stone of processedArray) {
+                    characterExists = stone.includes(character);
+                    if (!characterExists) {
+                        break;
+                    }
+                }
+                if (characterExists) {
+                    numberOfGemStones++;
+                }
+            }
+
+            return numberOfGemStones
+        }
+
+        function consoleOutput(numberOfGemStones) {
+            console.log(numberOfGemStones);
+        }
+
+        function processGemStones(input) {
+            let processedArray = processArray(input);
+            let processedString = getInputString(processedArray);
+            let uniqueCharacters = getUniqueCharacters(processedString);
+            let numberOfGemStones = calculateNumberOfGemStones(uniqueCharacters, processedArray);
+            return numberOfGemStones;
+        }
+
+        it("Test Case: 3 abcdde baccd eeabg: 2", () => {
             const input = "3\nabcdde\nbaccd\neeabg";
-            processGemStones(input);
+            const expected = 2;
+            let actual = processGemStones(input);
 
+            expect(actual).toBe(expected);
 
         });
     });

@@ -5,7 +5,7 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/solutions/the-love-letter-mystery.spec.js",
+            "program": "${workspaceRoot}/solutions/gem-stones.spec.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -20,18 +20,18 @@
             "externalConsole": false,
             "sourceMaps": false,
             "outDir": null
-        },
-        {
-            "name": "Attach",
-            "type": "node",
-            "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outDir": null,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
         }
+        // {
+        //     "name": "Attach",
+        //     "type": "node",
+        //     "request": "attach",
+        //     "port": 5858,
+        //     "address": "localhost",
+        //     "restart": false,
+        //     "sourceMaps": false,
+        //     "outDir": null,
+        //     "localRoot": "${workspaceRoot}",
+        //     "remoteRoot": null
+        // }
     ]
 }
