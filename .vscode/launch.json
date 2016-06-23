@@ -5,7 +5,7 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/solutions/palindrome-index.spec.js",
+            "program": "${workspaceRoot}/solutions/anagram.spec.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
