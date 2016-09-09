@@ -16,9 +16,10 @@ module.exports = function (wallaby) {
         testFramework: 'jasmine',
         debug: true,
         compilers: {
-            'solutions/**/*.spec.js': wallaby.compilers.babel({
-                babel: require("./node_modules/babel-core")
+            "**/*.js*": wallaby.compilers.babel({
+                presets: ["es2015"],
+                plugins: ["transform-object-rest-spread"]
             })
-        },
+        }
     }
 };
