@@ -6,11 +6,20 @@
         function getSeasons(data) {
             let seasonStartDates = [];
             for (let entry of data) {
-                const {seasonStartDate} = entry;
-                seasonStartDates = [...seasonStartDates, seasonStartDate];
+                const {seasonStartDate, seasonEndDate} = entry;
+                seasonStartDates = [...seasonStartDates, seasonStartDate, seasonEndDate];
             }
             const uniqueStartDates = seasonStartDates.filter((x, i, a) => a.indexOf(x) >= i);
-            return {};
+
+            let seasons = [];
+            for (let i = 0; i < uniqueStartDates.length - 1; i++) {
+                let season = {
+                    startDate: uniqueStartDates[i],
+                    endDate: uniqueStartDates[i + 1]
+                };
+                seasons = [...seasons, season];
+            }
+            return seasons;
         }
 
         it("static json", () => {
