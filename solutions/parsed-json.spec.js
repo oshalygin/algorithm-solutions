@@ -14,6 +14,83 @@
         }
 
         it("static json", () => {
+            const expected = {
+                seasons: [
+                    {
+                        startDate: "9/23/2015",
+                        endDate: "9/21/2016",
+                        programs: [
+                            {
+                                name: "MODERN FAMILY",
+                                alternateName: null,
+                                schedule: [
+                                    {
+                                        dateId: "a0Xi000000GIEzhEAH",
+                                        airTime: "09/07/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    },
+                                    {
+                                        dateId: "a0Xi000000GIEziEAH",
+                                        airTime: "09/14/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        startDate: "9/21/2016",
+                        endDate: "10/12/2016",
+                        programs: [
+                            {
+                                name: "MODERN FAMILY",
+                                alternateName: null,
+                                schedule: [
+                                    {
+                                        dateId: "a0X170000029dRKEAY",
+                                        airTime: "09/21/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    },
+                                    {
+                                        dateId: "a0X170000029dRLEAY",
+                                        airTime: "09/28/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    },
+                                    {
+                                        dateId: "a0X170000029dRMEAY",
+                                        airTime: "10/05/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    },
+                                    {
+                                        dateId: "a0X170000029dRNEAY",
+                                        airTime: "10/12/2016",
+                                        dayOfWeek: "Wednesday",
+                                        startTime: "9:00:00 PM",
+                                        endTime: "9:31:00 PM"
+
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            };
+
             const data = JSON.parse(apiData);
             getSeasons(data);
 
