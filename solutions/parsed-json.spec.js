@@ -22,6 +22,24 @@
             return seasons;
         }
 
+        function getPrograms(data, seasonStartDate) {
+            let programsForSeason = data.filter(entry => entry.seasonStartDate === seasonStartDate);
+            let programNames = programsForSeason.map(program => program.name)
+                .filter((x, i, a) => a.indexOf(x) >= i);
+
+            let programs = [];
+            for (let programName of programNames) {
+                let firstMatchingProgram = data.filter(entry => entry.name === programName)[0];
+                let program = {
+                    name: firstMatchingProgram.name,
+                    alternateName: firstMatchingProgram.alternateName,
+                    schedule: []
+                };
+                programs = [...programs, program];
+            }
+            return programs;
+        }
+
         it("static json", () => {
             const expected = {
                 seasons: [
@@ -101,7 +119,9 @@
             };
 
             const data = JSON.parse(apiData);
-            getSeasons(data);
+            const seasons = getSeasons(data);
+            let actual = { seasons };
+            getPrograms(data, seasons[0].startDate);
 
 
         });

@@ -1,44 +1,44 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "node": true,
-        "es6": true,
-        "mocha": true,
-        "mongo": true
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true,
+    "mongo": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "binaryLiterals": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "experimentalObjectRestSpread": true,
+      "restParams": true,
+      "forOf": true,
+      "generators": true,
+      "modules": false,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": true,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "octalLiterals": true,
+      "regexUFlag": true,
+      "regexYFlag": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "unicodeCodePointEscapes": true,
+      "globalReturn": true,
+      "jsx": true
     },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "arrowFunctions": true,
-            "binaryLiterals": true,
-            "blockBindings": true,
-            "classes": true,
-            "defaultParams": true,
-            "destructuring": true,
-            "experimentalObjectRestSpread": true,
-            "restParams": true,
-            "forOf": true,
-            "generators": true,
-            "modules": false,
-            "objectLiteralComputedProperties": true,
-            "objectLiteralDuplicateProperties": true,
-            "objectLiteralShorthandMethods": true,
-            "objectLiteralShorthandProperties": true,
-            "octalLiterals": true,
-            "regexUFlag": true,
-            "regexYFlag": true,
-            "spread": true,
-            "superInFunctions": true,
-            "templateStrings": true,
-            "unicodeCodePointEscapes": true,
-            "globalReturn": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-    ],
-    "rules": {
+    "sourceType": "module"
+  },
+  "plugins": [
+  ],
+  "rules": {
     //
     //Possible Errors
     //
@@ -310,7 +310,10 @@ module.exports = {
     ], // limits the number of parameters that can be used in the function declaration. (off by default)
     "max-statements": 0, // specify the maximum number of statement allowed in a function (off by default)
     "no-bitwise": 0, // disallow use of bitwise operators (off by default)
-    "no-plusplus": 2 // disallow use of unary operators, ++ and -- (off by default)
+    "no-plusplus": [
+      2,
+      { "allowForLoopAfterthoughts": true }
+    ] // disallow use of unary operators, ++ and -- (off by default)
 
   }
 };
