@@ -28,20 +28,17 @@
                     if (!containsNesting(processArray(inputArray[index]))) {
 
                         let deconstructedArray = inputArray[index].map((arrayValue => {
-                            return (nestedLayerRepresentation(nestedCount) + arrayValue.toString());
+                            return (nestedLayerRepresentation(nestedCount + 1) + arrayValue.toString());
                         }));
                         processedArray = [...processedArray, ...deconstructedArray];
 
                     } else {
-                        console.log(inputArray[index]);
                         processedArray = [...processedArray, ...parseArray(inputArray[index], (nestedCount + 1))];
                     }
                 } else {
                     processedArray = [...processedArray, (nestedLayerRepresentation(nestedCount) + inputArray[index].toString())];
                 }
-                // processedArray = [...processedArray, processArray(inputArray[index])];
             }
-            console.log(processedArray);
             return processedArray;
         }
 
