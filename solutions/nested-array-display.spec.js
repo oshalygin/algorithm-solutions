@@ -2,8 +2,15 @@
 
     describe("Nested Array Display", () => {
 
+        function nestedLayerRepresentation(nestedCount) {
+            let displayKey = "-";
+            displayKey.repeat(nestedCount);
+        }
+
         it("simplified scenario", () => {
-            const data = [1, [2, 3, 4], [5, 6, 7, [8, 9, [10]]]];
+            const data = [1, [2, 3, 4],
+                [5, 6, 7, [8, 9, [10]]]
+            ];
             const expected = [
                 "1",
                 "-2",
@@ -16,6 +23,8 @@
                 "--9",
                 "---10"
             ];
+
+
         });
 
     });
