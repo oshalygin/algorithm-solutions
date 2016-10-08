@@ -42,10 +42,23 @@
             return processedArray;
         }
 
+        it("nested display representation properly displays '--' when the counter value is 2", () => {
+            const actual = nestedLayerRepresentation(2);
+            const expected = "--";
+            expect(actual).toEqual(expected);
+        });
+
+        it("nested display representation properly displays an empty string when the counter value is 0", () => {
+            const actual = nestedLayerRepresentation(0);
+            const expected = "";
+            expect(actual).toEqual(expected);
+        });
+
         it("nested array returns false for containsNesting", () => {
             const actual = containsNesting([1, 3, 5]);
             expect(actual).toBeFalsy();
         });
+
 
         it("nested array returns true for containsNesting", () => {
             const actual = containsNesting([1, 3, [5, 6]]);
@@ -59,7 +72,7 @@
 
         it("simplified scenario", () => {
             const data = [1, [2, 3, 4],
-                [5, 6, 7, [8, 9, [10]]]
+                [5, 6, 7, [8, 9, [10]], 11, [12, 13], [[[14]]], 15]
             ];
 
             const expected = [
@@ -72,7 +85,12 @@
                 "-7",
                 "--8",
                 "--9",
-                "---10"
+                "---10",
+                "11",
+                "-12",
+                "-13",
+                "----14",
+                "15"
             ];
             let result = parseArray(data);
 
