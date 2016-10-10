@@ -16,6 +16,22 @@
             return Array.isArray(input);
         }
 
+        function persistUnnestedArray(originalArray, newArray, nesting) {
+            return [...originalArray, ...parseArray(newArray, nesting)]; //eslint-disable-line no-use-before-define
+        }
+
+        function persistNestedArray(originalArray, newArray, nesting) {
+            let deconstructedArray = newArray.map((arrayValue => {
+                            return (nestedLayerRepresentation(nesting) + arrayValue.toString());
+            }));
+
+            return [...originalArray, ...deconstructedArray];
+        }
+
+        function persistValue(originalArray, newValue, nesting) {
+            return [...originalArray, (nestedLayerRepresentation(nesting) + newValue.toString())];
+        }
+
         function containsNesting(inputArray) {
              return !!inputArray.filter(isArray).length;
         }
@@ -26,17 +42,12 @@
             for (let index = 0; index < inputArray.length; index = index + 1) {
                 if (isArray(inputArray[index])) {
                     if (!containsNesting(processArray(inputArray[index]))) {
-
-                        let deconstructedArray = inputArray[index].map((arrayValue => {
-                            return (nestedLayerRepresentation(nestedCount + 1) + arrayValue.toString());
-                        }));
-                        processedArray = [...processedArray, ...deconstructedArray];
-
+                        processedArray = persistNestedArray(processedArray, inputArray[index], (nestedCount + 1));
                     } else {
-                        processedArray = [...processedArray, ...parseArray(inputArray[index], (nestedCount + 1))];
+                        processedArray = persistUnnestedArray(processedArray, inputArray[index], (nestedCount + 1));
                     }
                 } else {
-                    processedArray = [...processedArray, (nestedLayerRepresentation(nestedCount) + inputArray[index].toString())];
+                    processedArray = persistValue(processedArray, inputArray[index], (nestedCount));
                 }
             }
             return processedArray;
@@ -135,8 +146,6 @@
 
             const assertion = arraysAreEqual(actual, expected);
             expect(assertion).toBeTruthy();
-
-
         });
 
     });
