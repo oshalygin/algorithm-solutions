@@ -41,6 +41,23 @@
             }
             return processedArray;
         }
+        function arraysAreEqual(actualArray, expectedArray) {
+            if (!Array.isArray(actualArray) || !Array.isArray(actualArray)) {
+                return false;
+            }
+
+            if (actualArray.length !== expectedArray.length) {
+                return false;
+            }
+
+            for (let iterator = 0; iterator < actualArray.length; iterator = iterator + 1) {
+                if (actualArray[iterator] !== expectedArray[iterator]) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         it("nested display representation properly displays '--' when the counter value is 2", () => {
             const actual = nestedLayerRepresentation(2);
@@ -70,10 +87,32 @@
             expect(actual).toBeTruthy();
         });
 
+        it("assertion array properly asserts equivalence", () => {
+            const actual = ["-1", "2", "3", "4", "5", "--6"];
+            const expected = ["-1", "2", "3", "4", "5", "--6"];
+
+            const assertion = arraysAreEqual(actual, expected);
+            expect(assertion).toBeTruthy();
+        });
+
+        it("if not passing an array to arraysAreEqual, returns false", () => {
+            const actual = "1";
+            const expected = ["-1", "2", "3", "4", "5", "--6"];
+
+            const assertion = arraysAreEqual(actual, expected);
+            expect(assertion).toBeFalsy();
+        });
+
+        it("if the arrays are different length, arraysAreEqual returns false", () => {
+            const actual = ["-1", "2", "3", "4", "5", "--6", "7"];
+            const expected = ["-1", "2", "3", "4", "5", "--6"];
+
+            const assertion = arraysAreEqual(actual, expected);
+            expect(assertion).toBeFalsy();
+        });
+
         it("simplified scenario", () => {
-            const data = [1, [2, 3, 4],
-                [5, 6, 7, [8, 9, [10]], 11, [12, 13], [[[14]]], 15]
-            ];
+            const data = [1, [2, 3, 4], [5, 6, 7, [8, 9, [10]]], 11, [12, 13], [[[[14]]]], 15];
 
             const expected = [
                 "1",
@@ -92,9 +131,11 @@
                 "----14",
                 "15"
             ];
-            let result = parseArray(data);
+            let actual = parseArray(data);
 
-            console.log(result);
+            const assertion = arraysAreEqual(actual, expected);
+            expect(assertion).toBeTruthy();
+
 
         });
 
