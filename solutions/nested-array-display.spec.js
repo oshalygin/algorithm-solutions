@@ -142,8 +142,8 @@
                 "----14",
                 "15"
             ];
-            let actual = parseArray(data);
 
+            let actual = parseArray(data);
             const assertion = arraysAreEqual(actual, expected);
             expect(assertion).toBeTruthy();
         });
