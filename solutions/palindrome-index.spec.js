@@ -3,9 +3,15 @@
     describe("Palindrome Index", () => {
 
         function processInput(stringInput) {
-            var arrayResult = stringInput.split("\n");
+            let arrayResult = stringInput.split("\n");
             arrayResult.shift();
             return arrayResult;
+        }
+
+        function consoleOutput(arrayOfRemovedIndices) { //eslint-disable-line no-unused-vars
+            for (let iterator = 0; iterator < arrayOfRemovedIndices.length; iterator++) {
+                console.log(arrayOfRemovedIndices[iterator]); //eslint-disable-line no-console
+            }
         }
 
         function determineIfPalindrome(testCase) {
@@ -64,15 +70,10 @@
             return removedIndices;
         }
 
-        function consoleOutput(arrayOfRemovedIndices) {
-            for (let iterator = 0; iterator < arrayOfRemovedIndices.length; iterator++) {
-                console.log(arrayOfRemovedIndices[iterator]);
-            }
-        }
 
         function assertExpectation(actual, expected) {
             for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).toEqual(expected[iterator]);
+                expect(actual[iterator]).toEqual(expected[iterator]); //eslint-disable-line no-undef
             }
         }
 

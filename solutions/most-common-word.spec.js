@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 (() => {
 //Hacky on the spot solution -- to be refactored
     describe("Captions", () => {
@@ -42,7 +43,13 @@
             const expected = "time";
 
             const captions = [
-                "Hello World", "I love time square!", "city of light", "i'm in time square right now.", "#nyc", "Time Square is so huge", "i love this city", "this is great"
+                "Hello World",
+                "I love time square!",
+                "city of light",
+                "i'm in time square right now.",
+                "#nyc", "Time Square is so huge",
+                "i love this city",
+                "this is great"
             ];
 
             const word = mostCommonWord(captions);
