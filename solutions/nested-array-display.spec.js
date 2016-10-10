@@ -16,11 +16,11 @@
             return Array.isArray(input);
         }
 
-        function persistUnnestedArray(originalArray, newArray, nesting) {
+        function persistNested(originalArray, newArray, nesting) {
             return [...originalArray, ...parseArray(newArray, nesting)]; //eslint-disable-line no-use-before-define
         }
 
-        function persistNestedArray(originalArray, newArray, nesting) {
+        function persistUnnested(originalArray, newArray, nesting) {
             let deconstructedArray = newArray.map((arrayValue => {
                             return (nestedLayerRepresentation(nesting) + arrayValue.toString());
             }));
@@ -41,10 +41,10 @@
 
             for (let index = 0; index < inputArray.length; index = index + 1) {
                 if (isArray(inputArray[index])) {
-                    if (!containsNesting(processArray(inputArray[index]))) {
-                        processedArray = persistNestedArray(processedArray, inputArray[index], (nestedCount + 1));
+                    if (containsNesting(processArray(inputArray[index]))) {
+                        processedArray = persistNested(processedArray, inputArray[index], (nestedCount + 1));
                     } else {
-                        processedArray = persistUnnestedArray(processedArray, inputArray[index], (nestedCount + 1));
+                        processedArray = persistUnnested(processedArray, inputArray[index], (nestedCount + 1));
                     }
                 } else {
                     processedArray = persistValue(processedArray, inputArray[index], (nestedCount));
