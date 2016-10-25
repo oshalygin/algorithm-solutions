@@ -19,8 +19,6 @@ module.exports = function (wallaby) {
                 env: "NODE_ENV=test"
             }
         },
-        testFramework: 'jasmine',
-        debug: true,
         compilers: {
             "**/*.js*": wallaby.compilers.babel({
                 presets: ["es2015"],

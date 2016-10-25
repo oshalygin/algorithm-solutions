@@ -6,8 +6,7 @@
   "scripts": {
     "gulp": "gulp",
     "karma": "karma",
-    "test:mocha": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec",
-    "test": "karma start karma.conf.js"
+    "test": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec"
   },
   "repository": {
     "type": "git",
