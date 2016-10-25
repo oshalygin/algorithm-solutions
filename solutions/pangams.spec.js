@@ -18,6 +18,11 @@
 
 // Output a line containing pangram if  is a pangram, otherwise output not pangram.
 import { expect } from "chai";
+import arrayPrototypeFind from "../polyfills/array.prototype.find";
+import arrayPrototypeIncludes from "../polyfills/array.prototype.includes";
+
+arrayPrototypeFind();
+arrayPrototypeIncludes();
 (() => {
 
     describe("Pangams", () => {
