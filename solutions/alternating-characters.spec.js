@@ -1,3 +1,4 @@
+
 // Shashank likes strings in which consecutive characters are different. For example, he likes ABABA, while he doesn't like ABAA. Given a string containing characters  and  only, he wants to change it into a string he likes. To do this, he is allowed to delete the characters in the string.
 
 // Your task is to find the minimum number of required deletions.
@@ -39,14 +40,14 @@
 // BABABA  BABABA, 0 deletions
 // AAABBB  AB, 4 deletions because to convert it to AB we need to delete 2 A's and 2 B's
 
-
+import { expect } from "chai";
 (function () {
 
     describe("Alternating Characters", () => {
 
         function testExpectation(actual, expected) {
             for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).toEqual(expected[iterator]);
+                expect(actual[iterator]).to.equal(expected[iterator]);
             }
         }
 

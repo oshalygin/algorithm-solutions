@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (() => {
     describe("A Very Big Sum", () => {
         function sum(arrayInput) {
@@ -24,7 +25,7 @@
             let arrayOfNumbers = convertToNumberArray(arrayOfStringValues);
 
             let actual = sum(arrayOfNumbers);
-            expect(actual).toEqual(expected); //eslint-disable-line no-undef
+            expect(actual).to.equal(expected); //eslint-disable-line no-undef
         });
     });
 })();

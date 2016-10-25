@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (() => {
     describe("Simple Array Sum", () => {
 

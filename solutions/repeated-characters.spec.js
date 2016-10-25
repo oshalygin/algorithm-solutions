@@ -1,7 +1,7 @@
 // write a script that returns the number of occurrences
 // of any given letter within the "Join the 42..." paragraph
 // example: the letter "j" occurs twice within the paragraph
-
+import { expect } from "chai";
 (() => {
 
     describe("Repeated Letters", () => {
@@ -25,7 +25,7 @@
             const expected = 2;
             const actual = letterOccurencInSentence(sentence, input);
 
-            expect(actual).toEqual(expected);
+            expect(actual).to.equal(expected);
         });
 
         it("The letter o is repeated eight times", () => {
@@ -34,7 +34,7 @@
             const expected = 8;
             const actual = letterOccurencInSentence(sentence, input);
 
-            expect(actual).toEqual(expected);
+            expect(actual).to.equal(expected);
         });
 
     });

@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (() => {
 
     describe("Palindrome Index", () => {
@@ -73,7 +74,7 @@
 
         function assertExpectation(actual, expected) {
             for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).toEqual(expected[iterator]); //eslint-disable-line no-undef
+                expect(actual[iterator]).to.equal(expected[iterator]); //eslint-disable-line no-undef
             }
         }
 

@@ -19,7 +19,7 @@
 // Output Format
 
 // A single line containing the number of minimum operations corresponding to each test case.
-
+import { expect } from "chai";
 (function () {
     describe("The Love Letter Mystery", () => {
 
@@ -60,7 +60,7 @@
 
         function testExpectation(actual, expected) {
             for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).toEqual(expected[iterator]);
+                expect(actual[iterator]).to.equal(expected[iterator]);
             }
         }
 

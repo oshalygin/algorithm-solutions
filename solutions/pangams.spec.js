@@ -17,7 +17,7 @@
 // Output Format
 
 // Output a line containing pangram if  is a pangram, otherwise output not pangram.
-
+import { expect } from "chai";
 (() => {
 
     describe("Pangams", () => {
@@ -42,14 +42,15 @@
 
         function allAlphabetCharactersExist(arrayOfCharacterCodes) {
             let numberOfLettersInTheAlphabet = 26;
-            return arrayOfCharacterCodes.length === numberOfLettersInTheAlphabet ?
-                true :
-                false;
+            return arrayOfCharacterCodes.length === numberOfLettersInTheAlphabet
+                ? true
+                : false;
         }
 
         function consoleOutput(isPangram) { //eslint-disable-line no-unused-vars
-            return isPangram ?
-                console.log("pangram") : //eslint-disable-line no-console
+            return isPangram
+                ? console.log("pangram")
+                : //eslint-disable-line no-console
                 console.log("not pangram"); //eslint-disable-line no-console
         }
 
@@ -64,28 +65,28 @@
             const sentence = "The quick brown fox jumps over the lazy dog";
             const isPangram = determineIfPangram(sentence);
 
-            expect(isPangram).toBeTruthy(); //eslint-disable-line no-undef
+            expect(isPangram).to.be.true; //eslint-disable-line no-undef
         });
 
         it("'We promptly judged antique ivory buckles for the next prize': is a pangram", () => {
             const sentence = "We promptly judged antique ivory buckles for the next prize";
             const isPangram = determineIfPangram(sentence);
 
-            expect(isPangram).toBeTruthy(); //eslint-disable-line no-undef
+            expect(isPangram).to.be.true; //eslint-disable-line no-undef
         });
 
         it("'Derp lord': not pangram", () => {
             const sentence = "Derp lord";
             const isNotPangram = determineIfPangram(sentence);
 
-            expect(isNotPangram).toBeFalsy(); //eslint-disable-line no-undef
+            expect(isNotPangram).to.be.false //eslint-disable-line no-unused-expressions
         });
 
         it("'We promptly judged antique ivory buckles for the prize': not pangram", () => {
             const sentence = "We promptly judged antique ivory buckles for the prize";
             const isNotPangram = determineIfPangram(sentence);
 
-            expect(isNotPangram).toBeFalsy(); //eslint-disable-line no-undef
+            expect(isNotPangram).to.be.false; //eslint-disable-line no-undef
         });
 
     });

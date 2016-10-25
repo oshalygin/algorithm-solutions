@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (function () {
     describe("sanity check tests", function () {
         it("simple math", function () {
@@ -6,7 +7,7 @@
             let secondValue = 2;
             let actual = firstValue + secondValue;
 
-            expect(actual).toEqual(expected);
+            expect(actual).to.equal(expected);
         });
     });
 })();

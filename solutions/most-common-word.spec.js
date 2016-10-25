@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { expect } from "chai";
 (() => {
 //Hacky on the spot solution -- to be refactored
     describe("Captions", () => {
@@ -54,7 +55,7 @@
 
             const word = mostCommonWord(captions);
             const actual = word.word;
-            expect(actual).toEqual(expected);
+            expect(actual).to.equal(expected);
         });
     });
 

@@ -30,7 +30,7 @@
 // Explanation
 
 // Only "a" and "b" are the two kinds of gem-elements, since these are the only characters that occur in every rock's composition.
-
+import { expect } from "chai";
 (() => {
     describe("Gem Stones", () => {
 
@@ -79,7 +79,7 @@
                 }
             }
 
-            return numberOfGemStones
+            return numberOfGemStones;
         }
 
         function consoleOutput(numberOfGemStones) {
@@ -99,7 +99,7 @@
             const expected = 2;
             let actual = processGemStones(input);
 
-            expect(actual).toBe(expected);
+            expect(actual).to.equal(expected);
 
         });
     });

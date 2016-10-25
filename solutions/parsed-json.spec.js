@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (() => {
     describe("Parsed JSON to Relational Array", () => {
 
