@@ -1,3 +1,4 @@
+import { expect } from "chai";
 (() => {
 
     describe("Insertion Sort Last Item - Part 1", () => {
@@ -20,8 +21,33 @@
             shiftedNumbers.splice(indexToShift + 1, 1, valueToSplice);
             return shiftedNumbers;
         }
-        function logOutArrayByLine(inputArray){
 
+        function arraysAreEqual(actualArray, expectedArray) {
+            if (!Array.isArray(actualArray) || !Array.isArray(actualArray)) {
+                return false;
+            }
+
+            if (actualArray.length !== expectedArray.length) {
+                return false;
+            }
+
+            for (let iterator = 0; iterator < actualArray.length; iterator = iterator + 1) {
+                for (let innerIterator = 0; innerIterator < actualArray[iterator]; innerIterator++) {
+                    if (actualArray[iterator][innerIterator] !== expectedArray[iterator][innerIterator]) {
+                        return false;
+                    }
+                }
+
+
+            }
+
+            return true;
+        }
+
+        function logOutArrayByLine(inputArray) {
+            for (let i = 0; i < inputArray.length; i++) {
+                console.log(inputArray[i].join(" "));
+            }
         }
 
         it("2 4 6 8 3", () => {
@@ -41,8 +67,10 @@
                 history.push(currentRow);
             }
 
+            logOutArrayByLine(history);
 
-            console.log(history);
+            const assertion = arraysAreEqual(history, expected);
+            expect(assertion).to.be.true; //eslint-disable-line no-unused-expressions
 
         });
 
