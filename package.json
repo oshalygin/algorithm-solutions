@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "gulp": "gulp",
-    "karma": "karma",
     "test": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec"
   },
   "repository": {
