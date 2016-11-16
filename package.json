@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "gulp": "gulp",
-    "test": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec"
+    "test": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc solutions --color"
   },
   "repository": {
     "type": "git",
