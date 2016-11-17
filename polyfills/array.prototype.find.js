@@ -1,3 +1,4 @@
+/* eslint-disable */
 function arrayFindPrototype() {
     if (!Array.prototype.find) {
         Array.prototype.find = function (predicate) {

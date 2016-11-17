@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import { expect } from "chai";
+import { expect } from 'chai';
 (() => {
 
-    describe("Nested Array Display", () => {
+    describe('Nested Array Display', () => {
 
         function nestedLayerRepresentation(nestedCount) {
-            let displayKey = "-";
+            const displayKey = '-';
             return displayKey.repeat(nestedCount);
         }
 
@@ -22,7 +22,7 @@ import { expect } from "chai";
         }
 
         function persistUnnested(originalArray, newArray, nesting) {
-            let deconstructedArray = newArray.map((arrayValue => {
+            const deconstructedArray = newArray.map((arrayValue => {
                             return (nestedLayerRepresentation(nesting) + arrayValue.toString());
             }));
 
@@ -71,82 +71,82 @@ import { expect } from "chai";
             return true;
         }
 
-        it("nested display representation properly displays '--' when the counter value is 2", () => {
+        it('nested display representation properly displays "--" when the counter value is 2', () => {
             const actual = nestedLayerRepresentation(2);
-            const expected = "--";
+            const expected = '--';
             expect(actual).to.equal(expected);
         });
 
-        it("nested display representation properly displays an empty string when the counter value is 0", () => {
+        it('nested display representation properly displays an empty string when the counter value is 0', () => {
             const actual = nestedLayerRepresentation(0);
-            const expected = "";
+            const expected = '';
             expect(actual).to.equal(expected);
         });
 
-        it("nested array returns false for containsNesting", () => {
+        it('nested array returns false for containsNesting', () => {
             const actual = containsNesting([1, 3, 5]);
             expect(actual).to.be.false; //eslint-disable-line no-unused-expressions
         });
 
 
-        it("nested array returns true for containsNesting", () => {
+        it('nested array returns true for containsNesting', () => {
             const actual = containsNesting([1, 3, [5, 6]]);
-            expect(actual).to.be.true;
+            expect(actual).to.be.true; //eslint-disable-line no-unused-expressions
         });
 
-        it("nested array returns true for containsNesting", () => {
+        it('nested array returns true for containsNesting', () => {
             const actual = containsNesting([1, 3, [5, 6, [7]]]);
-            expect(actual).to.be.true;
+            expect(actual).to.be.true; //eslint-disable-line no-unused-expressions
         });
 
-        it("assertion array properly asserts equivalence", () => {
-            const actual = ["-1", "2", "3", "4", "5", "--6"];
-            const expected = ["-1", "2", "3", "4", "5", "--6"];
+        it('assertion array properly asserts equivalence', () => {
+            const actual = ['-1', '2', '3', '4', '5', '--6'];
+            const expected = ['-1', '2', '3', '4', '5', '--6'];
 
             const assertion = arraysAreEqual(actual, expected);
-            expect(assertion).to.be.true;
+            expect(assertion).to.be.true; //eslint-disable-line no-unused-expressions
         });
 
-        it("if not passing an array to arraysAreEqual, returns false", () => {
-            const actual = "1";
-            const expected = ["-1", "2", "3", "4", "5", "--6"];
+        it('if not passing an array to arraysAreEqual, returns false', () => {
+            const actual = '1';
+            const expected = ['-1', '2', '3', '4', '5', '--6'];
 
             const assertion = arraysAreEqual(actual, expected);
-            expect(assertion).to.be.false;
+            expect(assertion).to.be.false; //eslint-disable-line no-unused-expressions
         });
 
-        it("if the arrays are different length, arraysAreEqual returns false", () => {
-            const actual = ["-1", "2", "3", "4", "5", "--6", "7"];
-            const expected = ["-1", "2", "3", "4", "5", "--6"];
+        it('if the arrays are different length, arraysAreEqual returns false', () => {
+            const actual = ['-1', '2', '3', '4', '5', '--6', '7'];
+            const expected = ['-1', '2', '3', '4', '5', '--6'];
 
             const assertion = arraysAreEqual(actual, expected);
-            expect(assertion).to.be.false;
+            expect(assertion).to.be.false; //eslint-disable-line no-unused-expressions
         });
 
-        it("simplified scenario", () => {
+        it('simplified scenario', () => {
             const data = [1, [2, 3, 4], [5, 6, 7, [8, 9, [10]]], 11, [12, 13], [[[[14]]]], 15];
 
             const expected = [
-                "1",
-                "-2",
-                "-3",
-                "-4",
-                "-5",
-                "-6",
-                "-7",
-                "--8",
-                "--9",
-                "---10",
-                "11",
-                "-12",
-                "-13",
-                "----14",
-                "15"
+                '1',
+                '-2',
+                '-3',
+                '-4',
+                '-5',
+                '-6',
+                '-7',
+                '--8',
+                '--9',
+                '---10',
+                '11',
+                '-12',
+                '-13',
+                '----14',
+                '15'
             ];
 
-            let actual = parseArray(data);
+            const actual = parseArray(data);
             const assertion = arraysAreEqual(actual, expected);
-            expect(assertion).to.be.true;
+            expect(assertion).to.be.true; //eslint-disable-line no-unused-expressions
         });
 
     });

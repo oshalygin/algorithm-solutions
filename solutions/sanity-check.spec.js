@@ -1,11 +1,12 @@
-import { expect } from "chai";
-(function () {
-    describe("sanity check tests", function () {
-        it("simple math", function () {
-            let expected = 3;
-            let firstValue = 1;
-            let secondValue = 2;
-            let actual = firstValue + secondValue;
+import { expect } from 'chai';
+
+(() => {
+    describe('sanity check tests', () => {
+        it('simple math', () => {
+            const expected = 3;
+            const firstValue = 1;
+            const secondValue = 2;
+            const actual = firstValue + secondValue;
 
             expect(actual).to.equal(expected);
         });

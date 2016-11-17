@@ -1,4 +1,5 @@
-/* eslint-disable-line no-undef */
+/* eslint-disable */
+//This is a solution by Michael, used for recordkeeping reference.
 import { expect } from "chai";
 (() => {
     describe("Another Nested Array", () => {

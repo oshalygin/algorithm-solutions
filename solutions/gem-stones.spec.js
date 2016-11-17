@@ -1,4 +1,7 @@
-// John has discovered various rocks. Each rock is composed of various elements, and each element is represented by a lower-case Latin letter from 'a' to 'z'. An element can be present multiple times in a rock. An element is called a gem-element if it occurs at least once in each of the rocks.
+// John has discovered various rocks.
+// Each rock is composed of various elements, and each element is represented by a lower-case Latin letter
+// from 'a' to 'z'.An element can be present multiple times in a rock.
+// An element is called a gem- element if it occurs at least once in each of the rocks.
 
 // Given the list of  rocks with their compositions, display the number of gem-elements that exist in those rocks.
 
@@ -6,8 +9,6 @@
 
 // The first line consists of an integer, , the number of rocks.
 // Each of the next  lines contains a rock's composition. Each composition consists of lower-case letters of English alphabet.
-
-
 
 // Constraints
 
@@ -29,31 +30,31 @@
 // 2
 // Explanation
 
-// Only "a" and "b" are the two kinds of gem-elements, since these are the only characters that occur in every rock's composition.
-import { expect } from "chai";
+// Only 'a' and 'b' are the two kinds of gem-elements, since these are the only characters that occur in every rock's composition.
+import { expect } from 'chai';
 (() => {
-    describe("Gem Stones", () => {
+    describe('Gem Stones', () => {
 
         function processArray(input) {
-            let inputArray = input.split("\n");
+            const inputArray = input.split('\n');
             inputArray.shift();
             return inputArray;
         }
 
         function getInputString(inputArray) {
-            return inputArray.join("");
+            return inputArray.join('');
         }
 
         function getUniqueCharacters(inputString) {
-            let uniqueCharacters = [];
-            let inputArray = inputString.split("");
+            const uniqueCharacters = [];
+            const inputArray = inputString.split('');
             inputArray.sort();
             uniqueCharacters.push(inputArray[0]);
 
             if (inputArray.length !== 1) {
                 const secondValue = 1;
                 for (let iterator = secondValue; iterator < inputArray.length; iterator++) {
-                    let currentLengthOfUniqueCharacterArray = uniqueCharacters.length;
+                    const currentLengthOfUniqueCharacterArray = uniqueCharacters.length;
                     if (inputArray[iterator] !== uniqueCharacters[currentLengthOfUniqueCharacterArray - 1]) {
                         uniqueCharacters.push(inputArray[iterator]);
                     }
@@ -65,10 +66,10 @@ import { expect } from "chai";
         function calculateNumberOfGemStones(uniqueCharacters, processedArray) {
             let numberOfGemStones = 0;
 
-            for (let character of uniqueCharacters) {
+            for (const character of uniqueCharacters) {
 
                 let characterExists = false;
-                for (let stone of processedArray) {
+                for (const stone of processedArray) {
                     characterExists = stone.includes(character);
                     if (!characterExists) {
                         break;
@@ -82,22 +83,22 @@ import { expect } from "chai";
             return numberOfGemStones;
         }
 
-        function consoleOutput(numberOfGemStones) {
-            console.log(numberOfGemStones);
+        function consoleOutput(numberOfGemStones) { //eslint-disable-line no-unused-vars
+            console.log(numberOfGemStones); //eslint-disable-line no-console
         }
 
         function processGemStones(input) {
-            let processedArray = processArray(input);
-            let processedString = getInputString(processedArray);
-            let uniqueCharacters = getUniqueCharacters(processedString);
-            let numberOfGemStones = calculateNumberOfGemStones(uniqueCharacters, processedArray);
+            const processedArray = processArray(input);
+            const processedString = getInputString(processedArray);
+            const uniqueCharacters = getUniqueCharacters(processedString);
+            const numberOfGemStones = calculateNumberOfGemStones(uniqueCharacters, processedArray);
             return numberOfGemStones;
         }
 
-        it("Test Case: 3 abcdde baccd eeabg: 2", () => {
-            const input = "3\nabcdde\nbaccd\neeabg";
+        it('Test Case: 3 abcdde baccd eeabg: 2', () => {
+            const input = '3\nabcdde\nbaccd\neeabg';
             const expected = 2;
-            let actual = processGemStones(input);
+            const actual = processGemStones(input);
 
             expect(actual).to.equal(expected);
 

@@ -1,4 +1,5 @@
-// This is an introductory challenge. The purpose of this challenge is to give you a working I/O template in your preferred language. It includes scanning  integers from STDIN, calling a function, returning a value, and printing it to STDOUT.
+// This is an introductory challenge. The purpose of this challenge is to give you a working I/O template in your preferred language.
+// It includes scanning  integers from STDIN, calling a function, returning a value, and printing it to STDOUT.
 
 // Your task is to scan two numbers,  and  from STDIN, and print the sum  on STDOUT.
 
@@ -14,19 +15,17 @@
 
 // Constraints
 
-
-
 // Sample Input
-import { expect } from "chai";
+import { expect } from 'chai';
 (() => {
 
-    describe("Solve Me First FP(Functional Programming)", () => {
+    describe('Solve Me First FP(Functional Programming)', () => {
 
         function sum(firstValue, secondValue) {
             return firstValue + secondValue;
         }
 
-        it("Test Case: 2+3", () => {
+        it('Test Case: 2+3', () => {
             const expected = 5;
             const actual = sum(2, 3);
 

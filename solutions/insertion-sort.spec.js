@@ -1,18 +1,18 @@
 (() => {
 
-    describe("Insertion Sort - Part 1", () => {
+    describe('Insertion Sort - Part 1', () => {
 
         function parseUnsortedNumbers(input) {
-            return input.split("\n")
+            return input.split('\n')
                 .pop()
-                .split(" ")
+                .split(' ')
                 .map(number => parseInt(number, 10));
         }
 
         function sortAroundIndex(numbers, index) {
             const indexValue = numbers[index];
             const previousIndexValue = numbers[index - 1];
-            let preSortedNumbers = [...numbers];
+            const preSortedNumbers = [...numbers];
 
             if (previousIndexValue > indexValue) {
                 preSortedNumbers.splice(index - 1, 1, previousIndexValue);
@@ -22,7 +22,6 @@
             }
             return preSortedNumbers;
         }
-
 
         function sortNumbersByIndex(numbers, index) {
 
@@ -36,9 +35,9 @@
             return sortedNumbers;
         }
 
-        it("2 4 6 8 3", () => {
-            const input = "5\n2 4 6 8 3";
-            const expected = [
+        it('2 4 6 8 3', () => {
+            const input = '5\n2 4 6 8 3';
+            const expected = [ //eslint-disable-line no-unused-vars
                 [2, 4, 6, 8, 8], [2, 4, 6, 6, 8], [2, 4, 4, 6, 8], [2, 3, 4, 6, 8]
             ];
 
@@ -46,12 +45,12 @@
             let history = [];
             let currentHistory = unsortedNumbers;
 
-            for (let i = unsortedNumbers.length - 1; i > 0; i--) {
-                currentHistory = sortNumbersByIndex(currentHistory, i);
+            for (let iterator = unsortedNumbers.length - 1; iterator > 0; iterator--) {
+                currentHistory = sortNumbersByIndex(currentHistory, iterator);
                 history = [...history, currentHistory];
             }
 
-            console.log(history);
+            console.log(history); //eslint-disable-line no-console
 
         });
 

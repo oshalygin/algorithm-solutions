@@ -1,20 +1,20 @@
-import { expect } from "chai";
+import { expect } from 'chai';
 (() => {
 
-    describe("Insertion Sort Last Item - Part 1", () => {
+    describe('Insertion Sort Last Item - Part 1', () => {
 
         function parseUnsortedNumbers(input) {
-            return input.split("\n")
+            return input.split('\n')
                 .pop()
-                .split(" ")
+                .split(' ')
                 .map(number => parseInt(number, 10));
         }
 
         function getShiftedNumbers(numbers, unsortedNumber, indexToShift) {
-            let shiftedNumbers = [...numbers];
+            const shiftedNumbers = [...numbers];
 
             const currentNumber = numbers[indexToShift];
-            let valueToSplice = currentNumber > unsortedNumber
+            const valueToSplice = currentNumber > unsortedNumber
                 ? currentNumber
                 : unsortedNumber;
 
@@ -37,29 +37,27 @@ import { expect } from "chai";
                         return false;
                     }
                 }
-
-
             }
 
             return true;
         }
 
         function logOutArrayByLine(inputArray) {
-            for (let i = 0; i < inputArray.length; i++) {
-                console.log(inputArray[i].join(" "));
+            for (let iterator = 0; iterator < inputArray.length; iterator++) {
+                console.log(inputArray[iterator].join(' ')); //eslint-disable-line no-console
             }
         }
 
-        it("2 4 6 8 3", () => {
-            const input = "5\n2 4 6 8 3";
+        it('2 4 6 8 3', () => {
+            const input = '5\n2 4 6 8 3';
             const expected = [
                 [2, 4, 6, 8, 8], [2, 4, 6, 6, 8], [2, 4, 4, 6, 8], [2, 3, 4, 6, 8]
             ];
 
-            let numbers = parseUnsortedNumbers(input);
+            const numbers = parseUnsortedNumbers(input);
             const unsortedNumber = numbers[numbers.length - 1];
 
-            let history = [];
+            const history = [];
             let currentRow = numbers;
 
             for (let index = numbers.length - 2; index >= 0; index--) {

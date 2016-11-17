@@ -1,10 +1,10 @@
-import { expect } from "chai";
+import { expect } from 'chai';
 (() => {
 
-    describe("Palindrome Index", () => {
+    describe('Palindrome Index', () => {
 
         function processInput(stringInput) {
-            let arrayResult = stringInput.split("\n");
+            const arrayResult = stringInput.split('\n');
             arrayResult.shift();
             return arrayResult;
         }
@@ -16,7 +16,7 @@ import { expect } from "chai";
         }
 
         function determineIfPalindrome(testCase) {
-            let lengthOfTestCase = testCase.length;
+            const lengthOfTestCase = testCase.length;
             let isPalindrome = false;
             for (let iterator = 0; iterator < lengthOfTestCase; iterator++) {
                 if (testCase[iterator] === testCase[lengthOfTestCase - 1 - iterator]) {
@@ -30,7 +30,7 @@ import { expect } from "chai";
         }
 
         function calculateCharacterRemovalIndex(stringInput) {
-            let stringLength = stringInput.length;
+            const stringLength = stringInput.length;
 
             for (let index = 0; index < stringLength; index++) {
                 if (stringInput[index] !== stringInput[stringLength - 1 - index]) {
@@ -42,11 +42,11 @@ import { expect } from "chai";
         }
 
         function calculateWhichIndexToRemove(indexesArray, stringInput) {
-            for (let index of indexesArray) {
+            for (const index of indexesArray) {
 
-                let stringArray = stringInput.split("");
+                const stringArray = stringInput.split('');
                 stringArray.splice(index, 1);
-                let testCase = stringArray.join("");
+                const testCase = stringArray.join('');
 
                 if (determineIfPalindrome(testCase)) {
                     return index;
@@ -56,16 +56,16 @@ import { expect } from "chai";
         }
 
         function getRemovedIndices(arrayOfInput) {
-            let removedIndices = [];
-            let alreadyPalindrome = -1;
-            for (let input of arrayOfInput) {
+            const removedIndices = [];
+            const alreadyPalindrome = -1;
+            for (const input of arrayOfInput) {
 
-                let removedIndexArray = calculateCharacterRemovalIndex(input);
+                const removedIndexArray = calculateCharacterRemovalIndex(input);
                 if (!removedIndexArray) {
                     removedIndices.push(alreadyPalindrome);
                     continue;
                 }
-                let specificIndexRemoved = calculateWhichIndexToRemove(removedIndexArray, input);
+                const specificIndexRemoved = calculateWhichIndexToRemove(removedIndexArray, input);
                 removedIndices.push(specificIndexRemoved);
             }
             return removedIndices;
@@ -78,12 +78,12 @@ import { expect } from "chai";
             }
         }
 
-        it("Test Case: 3 aaab baa aaa: 3 0 -1", () => {
-            let input = "3\naaab\nbaa\naaa";
+        it('Test Case: 3 aaab baa aaa: 3 0 -1', () => {
+            const input = '3\naaab\nbaa\naaa';
 
-            let expected = [3, 0, -1];
-            let arrayOfInput = processInput(input);
-            let actual = getRemovedIndices(arrayOfInput);
+            const expected = [3, 0, -1];
+            const arrayOfInput = processInput(input);
+            const actual = getRemovedIndices(arrayOfInput);
             assertExpectation(actual, expected);
 
         });

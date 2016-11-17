@@ -1,6 +1,6 @@
-import { expect } from "chai";
+import { expect } from 'chai';
 (() => {
-    describe("A Very Big Sum", () => {
+    describe('A Very Big Sum', () => {
         function sum(arrayInput) {
             return arrayInput.reduce((previousValue, newValue) => {
                 return previousValue + newValue;
@@ -15,16 +15,15 @@ import { expect } from "chai";
             return arrayOfStrings.map(returnIntegerValue);
         }
 
+        it('Test Scenario: 1000000001 1000000002 1000000003 1000000004 1000000005 : 5000000015', () => {
 
-        it("Test Scenario: 1000000001 1000000002 1000000003 1000000004 1000000005 : 5000000015", () => {
+            const inputStringOfValues = '1000000001 1000000002 1000000003 1000000004 1000000005';
+            const expected = 5000000015;
 
-            let inputStringOfValues = "1000000001 1000000002 1000000003 1000000004 1000000005";
-            let expected = 5000000015;
+            const arrayOfStringValues = inputStringOfValues.split(' ');
+            const arrayOfNumbers = convertToNumberArray(arrayOfStringValues);
 
-            let arrayOfStringValues = inputStringOfValues.split(" ");
-            let arrayOfNumbers = convertToNumberArray(arrayOfStringValues);
-
-            let actual = sum(arrayOfNumbers);
+            const actual = sum(arrayOfNumbers);
             expect(actual).to.equal(expected); //eslint-disable-line no-undef
         });
     });
