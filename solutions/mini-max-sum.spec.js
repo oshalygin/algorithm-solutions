@@ -30,7 +30,7 @@
 
                 const integers = input
                     .split(' ')
-                    .map(integer => parseInt(integer, 10)); //eslint-disable-line max-nested-callbacks
+                    .map(Number); //eslint-disable-line max-nested-callbacks
 
 
                 const miniMax = calculateMinMax(integers);

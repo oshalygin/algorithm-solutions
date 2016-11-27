@@ -63,7 +63,7 @@ import { expect } from 'chai';
 
             const letterHeight = valuesAndText[0]
                 .split(' ')
-                .map(integer => parseInt(integer, 10)); //eslint-disable-line max-nested-callbacks
+                .map(Number); //eslint-disable-line max-nested-callbacks
 
             const text = valuesAndText[1].split('');
 
@@ -82,7 +82,7 @@ import { expect } from 'chai';
 
             const letterHeight = valuesAndText[0]
                 .split(' ')
-                .map(integer => parseInt(integer, 10)); //eslint-disable-line max-nested-callbacks
+                .map(Number); //eslint-disable-line max-nested-callbacks
 
             const text = valuesAndText[1].split('');
 
