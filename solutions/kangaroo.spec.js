@@ -43,77 +43,77 @@ The second kangaroo has a starting location that is ahead (further to the right)
 import { expect } from 'chai';
 
 (() => {
-    describe('Kangaroo', () => {
-        const yes = 'YES';
-        const no = 'NO';
+  describe('Kangaroo', () => {
+    const yes = 'YES';
+    const no = 'NO';
 
-        function identicalLanding(firstKangarooLocation, firstKangarooVelocity, secondKangarooLocation, secondKangarooVelocity) {
+    function identicalLanding(firstKangarooLocation, firstKangarooVelocity, secondKangarooLocation, secondKangarooVelocity) {
 
-            const maximumNumberOfIterations = 10000;
-            let currentFirstKangarooLocation = 0;
-            let currentSecondKangarooLocation = 0;
+      const maximumNumberOfIterations = 10000;
+      let currentFirstKangarooLocation = 0;
+      let currentSecondKangarooLocation = 0;
 
-            if (firstKangarooVelocity < secondKangarooVelocity) {
-                return no;
-            }
+      if (firstKangarooVelocity < secondKangarooVelocity) {
+        return no;
+      }
 
-            for (let iteration = 0; iteration < maximumNumberOfIterations; iteration++) {
+      for (let iteration = 0; iteration < maximumNumberOfIterations; iteration++) {
 
-                currentFirstKangarooLocation = firstKangarooLocation + firstKangarooVelocity * iteration;
-                currentSecondKangarooLocation = secondKangarooLocation + secondKangarooVelocity * iteration;
+        currentFirstKangarooLocation = firstKangarooLocation + firstKangarooVelocity * iteration;
+        currentSecondKangarooLocation = secondKangarooLocation + secondKangarooVelocity * iteration;
 
-                if (currentFirstKangarooLocation > currentSecondKangarooLocation) {
-                    break;
-                }
-
-                if (currentFirstKangarooLocation === currentSecondKangarooLocation) {
-                    return yes;
-                }
-            }
-
-            return no;
+        if (currentFirstKangarooLocation > currentSecondKangarooLocation) {
+          break;
         }
 
-        it('0 1 4 2 => NO', () => {
-            const input = '0 1 4 2';
-            const expected = no;
-            const parsedInput = input.split(' ').map(Number);
+        if (currentFirstKangarooLocation === currentSecondKangarooLocation) {
+          return yes;
+        }
+      }
 
-            const firstKangarooLocation = parsedInput[0];
-            const firstKangarooVelocity = parsedInput[1];
+      return no;
+    }
 
-            const secondKangarooLocation = parsedInput[2];
-            const secondKangarooVelocity = parsedInput[3];
+    it('0 1 4 2 => NO', () => {
+      const input = '0 1 4 2';
+      const expected = no;
+      const parsedInput = input.split(' ').map(Number);
 
-            const actual = identicalLanding(
-                firstKangarooLocation,
-                firstKangarooVelocity,
-                secondKangarooLocation,
-                secondKangarooVelocity);
+      const firstKangarooLocation = parsedInput[0];
+      const firstKangarooVelocity = parsedInput[1];
 
-            expect(actual).to.equal(expected);
+      const secondKangarooLocation = parsedInput[2];
+      const secondKangarooVelocity = parsedInput[3];
 
-        });
+      const actual = identicalLanding(
+        firstKangarooLocation,
+        firstKangarooVelocity,
+        secondKangarooLocation,
+        secondKangarooVelocity);
 
-        it('0 3 4 2 => NO', () => {
-            const input = '0 3 4 2';
-            const expected = yes;
-            const parsedInput = input.split(' ').map(Number);
+      expect(actual).to.equal(expected);
 
-            const firstKangarooLocation = parsedInput[0];
-            const firstKangarooVelocity = parsedInput[1];
-
-            const secondKangarooLocation = parsedInput[2];
-            const secondKangarooVelocity = parsedInput[3];
-
-            const actual = identicalLanding(
-                firstKangarooLocation,
-                firstKangarooVelocity,
-                secondKangarooLocation,
-                secondKangarooVelocity);
-
-            expect(actual).to.equal(expected);
-
-        });
     });
+
+    it('0 3 4 2 => NO', () => {
+      const input = '0 3 4 2';
+      const expected = yes;
+      const parsedInput = input.split(' ').map(Number);
+
+      const firstKangarooLocation = parsedInput[0];
+      const firstKangarooVelocity = parsedInput[1];
+
+      const secondKangarooLocation = parsedInput[2];
+      const secondKangarooVelocity = parsedInput[3];
+
+      const actual = identicalLanding(
+        firstKangarooLocation,
+        firstKangarooVelocity,
+        secondKangarooLocation,
+        secondKangarooVelocity);
+
+      expect(actual).to.equal(expected);
+
+    });
+  });
 })();

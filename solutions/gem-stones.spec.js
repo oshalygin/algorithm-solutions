@@ -33,75 +33,75 @@
 // Only 'a' and 'b' are the two kinds of gem-elements, since these are the only characters that occur in every rock's composition.
 import { expect } from 'chai';
 (() => {
-    describe('Gem Stones', () => {
+  describe('Gem Stones', () => {
 
-        function processArray(input) {
-            const inputArray = input.split('\n');
-            inputArray.shift();
-            return inputArray;
+    function processArray(input) {
+      const inputArray = input.split('\n');
+      inputArray.shift();
+      return inputArray;
+    }
+
+    function getInputString(inputArray) {
+      return inputArray.join('');
+    }
+
+    function getUniqueCharacters(inputString) {
+      const uniqueCharacters = [];
+      const inputArray = inputString.split('');
+      inputArray.sort();
+      uniqueCharacters.push(inputArray[0]);
+
+      if (inputArray.length !== 1) {
+        const secondValue = 1;
+        for (let iterator = secondValue; iterator < inputArray.length; iterator++) {
+          const currentLengthOfUniqueCharacterArray = uniqueCharacters.length;
+          if (inputArray[iterator] !== uniqueCharacters[currentLengthOfUniqueCharacterArray - 1]) {
+            uniqueCharacters.push(inputArray[iterator]);
+          }
         }
+      }
+      return uniqueCharacters;
+    }
 
-        function getInputString(inputArray) {
-            return inputArray.join('');
+    function calculateNumberOfGemStones(uniqueCharacters, processedArray) {
+      let numberOfGemStones = 0;
+
+      for (const character of uniqueCharacters) {
+
+        let characterExists = false;
+        for (const stone of processedArray) {
+          characterExists = stone.includes(character);
+          if (!characterExists) {
+            break;
+          }
         }
-
-        function getUniqueCharacters(inputString) {
-            const uniqueCharacters = [];
-            const inputArray = inputString.split('');
-            inputArray.sort();
-            uniqueCharacters.push(inputArray[0]);
-
-            if (inputArray.length !== 1) {
-                const secondValue = 1;
-                for (let iterator = secondValue; iterator < inputArray.length; iterator++) {
-                    const currentLengthOfUniqueCharacterArray = uniqueCharacters.length;
-                    if (inputArray[iterator] !== uniqueCharacters[currentLengthOfUniqueCharacterArray - 1]) {
-                        uniqueCharacters.push(inputArray[iterator]);
-                    }
-                }
-            }
-            return uniqueCharacters;
+        if (characterExists) {
+          numberOfGemStones++;
         }
+      }
 
-        function calculateNumberOfGemStones(uniqueCharacters, processedArray) {
-            let numberOfGemStones = 0;
+      return numberOfGemStones;
+    }
 
-            for (const character of uniqueCharacters) {
+    function consoleOutput(numberOfGemStones) { //eslint-disable-line no-unused-vars
+      console.log(numberOfGemStones); //eslint-disable-line no-console
+    }
 
-                let characterExists = false;
-                for (const stone of processedArray) {
-                    characterExists = stone.includes(character);
-                    if (!characterExists) {
-                        break;
-                    }
-                }
-                if (characterExists) {
-                    numberOfGemStones++;
-                }
-            }
+    function processGemStones(input) {
+      const processedArray = processArray(input);
+      const processedString = getInputString(processedArray);
+      const uniqueCharacters = getUniqueCharacters(processedString);
+      const numberOfGemStones = calculateNumberOfGemStones(uniqueCharacters, processedArray);
+      return numberOfGemStones;
+    }
 
-            return numberOfGemStones;
-        }
+    it('Test Case: 3 abcdde baccd eeabg: 2', () => {
+      const input = '3\nabcdde\nbaccd\neeabg';
+      const expected = 2;
+      const actual = processGemStones(input);
 
-        function consoleOutput(numberOfGemStones) { //eslint-disable-line no-unused-vars
-            console.log(numberOfGemStones); //eslint-disable-line no-console
-        }
+      expect(actual).to.equal(expected);
 
-        function processGemStones(input) {
-            const processedArray = processArray(input);
-            const processedString = getInputString(processedArray);
-            const uniqueCharacters = getUniqueCharacters(processedString);
-            const numberOfGemStones = calculateNumberOfGemStones(uniqueCharacters, processedArray);
-            return numberOfGemStones;
-        }
-
-        it('Test Case: 3 abcdde baccd eeabg: 2', () => {
-            const input = '3\nabcdde\nbaccd\neeabg';
-            const expected = 2;
-            const actual = processGemStones(input);
-
-            expect(actual).to.equal(expected);
-
-        });
     });
+  });
 })();

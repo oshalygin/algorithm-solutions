@@ -38,36 +38,36 @@ The number  is broken into four digits, , , , and .  is evenly divisible by its 
 import { expect } from 'chai';
 
 (() => {
-    describe('Find Digits', () => {
+  describe('Find Digits', () => {
 
-        function calculateNumberOfDigits(input) {
-            const fullValue = parseInt(input, 10);
-            const individualDigits = input
-                .split('')
-                .map(integer => parseInt(integer, 10));
+    function calculateNumberOfDigits(input) {
+      const fullValue = parseInt(input, 10);
+      const individualDigits = input
+        .split('')
+        .map(integer => parseInt(integer, 10));
 
-            const numberOfDigits = individualDigits.reduce((previous, next) => {
-                if (next !== 0 && fullValue % next === 0) {
-                    return previous + 1;
-                }
-                return previous;
-            }, 0);
-            return numberOfDigits;
+      const numberOfDigits = individualDigits.reduce((previous, next) => {
+        if (next !== 0 && fullValue % next === 0) {
+          return previous + 1;
         }
+        return previous;
+      }, 0);
+      return numberOfDigits;
+    }
 
-        it('2 12 1012 => 2 3', () => {
+    it('2 12 1012 => 2 3', () => {
 
-            const input = '2\n12\n1012';
-            const expected = [2, 3];
-            const splitInput = input.split('\n');
-            const [, ...testCases] = splitInput;
+      const input = '2\n12\n1012';
+      const expected = [2, 3];
+      const splitInput = input.split('\n');
+      const [, ...testCases] = splitInput;
 
-            const actual = testCases.map(calculateNumberOfDigits);
+      const actual = testCases.map(calculateNumberOfDigits);
 
-            expect(actual).to.deep.equal(expected);
-
-        });
+      expect(actual).to.deep.equal(expected);
 
     });
+
+  });
 
 })();

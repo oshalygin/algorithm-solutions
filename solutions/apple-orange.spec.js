@@ -53,52 +53,52 @@ import { expect } from 'chai';
 
 (() => {
 
-    describe('Apple and Orange', () => {
+  describe('Apple and Orange', () => {
 
-        function capturedFruid(fruitDistance, houseStartingPoint, houseEndingPoint) {
-            const result = fruitDistance.split(' ')
-                .map(Number)
-                .reduce((previous, next) => {
-                    if (next >= houseStartingPoint && next <= houseEndingPoint) {
-                        return previous + 1;
-                    }
-                    return previous;
-                }, 0);
+    function capturedFruid(fruitDistance, houseStartingPoint, houseEndingPoint) {
+      const result = fruitDistance.split(' ')
+        .map(Number)
+        .reduce((previous, next) => {
+          if (next >= houseStartingPoint && next <= houseEndingPoint) {
+            return previous + 1;
+          }
+          return previous;
+        }, 0);
 
-            return result;
-        }
+      return result;
+    }
 
-        it('Simple example', () => {
+    it('Simple example', () => {
 
-            const expectedApples = 1;
-            const expectedOranges = 1;
+      const expectedApples = 1;
+      const expectedOranges = 1;
 
-            const houseInput = '7 11';
-            const treeInput = '5 15';
-            const fruitCount = '3 2'; //eslint-disable-line no-unused-vars
-            const appleDistaneInput = '-2 2 1';
-            const orangeDistanceInput = '5 -6';
+      const houseInput = '7 11';
+      const treeInput = '5 15';
+      const fruitCount = '3 2'; //eslint-disable-line no-unused-vars
+      const appleDistaneInput = '-2 2 1';
+      const orangeDistanceInput = '5 -6';
 
-            const startOfHouse = houseInput.split(' ')[0];
-            const endOfHouse = houseInput.split(' ')[1];
-            const appleTree = treeInput.split(' ')[0];
-            const orangeTree = treeInput.split(' ')[1];
+      const startOfHouse = houseInput.split(' ')[0];
+      const endOfHouse = houseInput.split(' ')[1];
+      const appleTree = treeInput.split(' ')[0];
+      const orangeTree = treeInput.split(' ')[1];
 
-            const startOfHouseFromAppleTree = startOfHouse - appleTree;
-            const endOfHouseFromAppleTree = endOfHouse - appleTree;
+      const startOfHouseFromAppleTree = startOfHouse - appleTree;
+      const endOfHouseFromAppleTree = endOfHouse - appleTree;
 
-            const startOfHouseFromOrangeTree = startOfHouse - orangeTree;
-            const endOfHouseFromOrangeTree = endOfHouse - orangeTree;
+      const startOfHouseFromOrangeTree = startOfHouse - orangeTree;
+      const endOfHouseFromOrangeTree = endOfHouse - orangeTree;
 
-            const apples = capturedFruid(appleDistaneInput, startOfHouseFromAppleTree, endOfHouseFromAppleTree);
-            const oranges = capturedFruid(orangeDistanceInput, startOfHouseFromOrangeTree, endOfHouseFromOrangeTree);
+      const apples = capturedFruid(appleDistaneInput, startOfHouseFromAppleTree, endOfHouseFromAppleTree);
+      const oranges = capturedFruid(orangeDistanceInput, startOfHouseFromOrangeTree, endOfHouseFromOrangeTree);
 
-            expect(apples).equals(expectedApples);
-            expect(oranges).equals(expectedOranges);
-
-        });
-
+      expect(apples).equals(expectedApples);
+      expect(oranges).equals(expectedOranges);
 
     });
+
+
+  });
 
 })();

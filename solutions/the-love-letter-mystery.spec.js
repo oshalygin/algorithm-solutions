@@ -24,65 +24,65 @@
 // A single line containing the number of minimum operations corresponding to each test case.
 import { expect } from 'chai';
 (() => {
-    describe('The Love Letter Mystery', () => {
+  describe('The Love Letter Mystery', () => {
 
-        function getTestCases(userInput) {
-            const inputArray = userInput.split('\n');
-            inputArray.shift();
+    function getTestCases(userInput) {
+      const inputArray = userInput.split('\n');
+      inputArray.shift();
 
-            return inputArray;
-        }
+      return inputArray;
+    }
 
-        function calculateReductions(firstCharacter, secondCharacter) {
-            const firstValue = firstCharacter.charCodeAt(0);
-            const secondValue = secondCharacter.charCodeAt(0);
+    function calculateReductions(firstCharacter, secondCharacter) {
+      const firstValue = firstCharacter.charCodeAt(0);
+      const secondValue = secondCharacter.charCodeAt(0);
 
-            return Math.abs(firstValue - secondValue);
-        }
+      return Math.abs(firstValue - secondValue);
+    }
 
-        function determineOperations(testCase) {
-            const characters = testCase.split('');
-            let numberOfOperations = 0;
-            const lengthOfString = characters.length;
+    function determineOperations(testCase) {
+      const characters = testCase.split('');
+      let numberOfOperations = 0;
+      const lengthOfString = characters.length;
 
-            for (let iterator = 0; iterator < lengthOfString / 2; iterator++) {
-                numberOfOperations += calculateReductions(characters[iterator], characters[lengthOfString - 1 - iterator]);
-            }
-            return numberOfOperations;
-        }
+      for (let iterator = 0; iterator < lengthOfString / 2; iterator++) {
+        numberOfOperations += calculateReductions(characters[iterator], characters[lengthOfString - 1 - iterator]);
+      }
+      return numberOfOperations;
+    }
 
-        function getListOfOperations(testCases) {
-            const listOfOperations = [];
+    function getListOfOperations(testCases) {
+      const listOfOperations = [];
 
-            for (const testCase of testCases) {
-                const numberOfOperations = determineOperations(testCase);
-                listOfOperations.push(numberOfOperations);
-            }
-            return listOfOperations;
-        }
+      for (const testCase of testCases) {
+        const numberOfOperations = determineOperations(testCase);
+        listOfOperations.push(numberOfOperations);
+      }
+      return listOfOperations;
+    }
 
-        function testExpectation(actual, expected) {
-            for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).to.equal(expected[iterator]);
-            }
-        }
+    function testExpectation(actual, expected) {
+      for (let iterator = 0; iterator < actual.length; iterator++) {
+        expect(actual[iterator]).to.equal(expected[iterator]);
+      }
+    }
 
-        function consoleOutput(operations) { //eslint-disable-line no-unused-vars
-            for (const operationCount of operations) {
-                console.log(operationCount); //eslint-disable-line no-console
-            }
-        }
+    function consoleOutput(operations) { //eslint-disable-line no-unused-vars
+      for (const operationCount of operations) {
+        console.log(operationCount); //eslint-disable-line no-console
+      }
+    }
 
-        it('First Test Case: 2, 0, 4, 2', () => {
-            const input = '4\nabc\nabcba\nabcd\ncba';
-            const expected = [2, 0, 4, 2];
-            const testCases = getTestCases(input);
-            const actual = getListOfOperations(testCases);
+    it('First Test Case: 2, 0, 4, 2', () => {
+      const input = '4\nabc\nabcba\nabcd\ncba';
+      const expected = [2, 0, 4, 2];
+      const testCases = getTestCases(input);
+      const actual = getListOfOperations(testCases);
 
-            testExpectation(actual, expected);
-            // consoleOutput(actual);
+      testExpectation(actual, expected);
+      // consoleOutput(actual);
 
-        });
     });
+  });
 
 })();

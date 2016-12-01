@@ -19,17 +19,17 @@
 import { expect } from 'chai';
 (() => {
 
-    describe('Solve Me First FP(Functional Programming)', () => {
+  describe('Solve Me First FP(Functional Programming)', () => {
 
-        function sum(firstValue, secondValue) {
-            return firstValue + secondValue;
-        }
+    function sum(firstValue, secondValue) {
+      return firstValue + secondValue;
+    }
 
-        it('Test Case: 2+3', () => {
-            const expected = 5;
-            const actual = sum(2, 3);
+    it('Test Case: 2+3', () => {
+      const expected = 5;
+      const actual = sum(2, 3);
 
-            expect(actual).to.equal(expected);
-        });
+      expect(actual).to.equal(expected);
     });
+  });
 })();

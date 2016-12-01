@@ -41,57 +41,57 @@ Note: Recall that the width of each character is .
 import { expect } from 'chai';
 (() => {
 
-    describe('Designer PDF Viewer', () => {
+  describe('Designer PDF Viewer', () => {
 
-        function calculateTextArea(text, height) {
-            const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    function calculateTextArea(text, height) {
+      const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-            const maxHeight = text.reduce((previous, next) => {
-                const currentHeight = height[letters.indexOf(next)];
-                return currentHeight > previous ? currentHeight : previous;
-            }, 1);
+      const maxHeight = text.reduce((previous, next) => {
+        const currentHeight = height[letters.indexOf(next)];
+        return currentHeight > previous ? currentHeight : previous;
+      }, 1);
 
-            return text.length * maxHeight;
-        }
+      return text.length * maxHeight;
+    }
 
-        it('simple abc => 9', () => {
-            const expected = 9;
-            const input = '1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5\nabc';
+    it('simple abc => 9', () => {
+      const expected = 9;
+      const input = '1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5\nabc';
 
-            const valuesAndText = input
-                .split('\n');
+      const valuesAndText = input
+        .split('\n');
 
-            const letterHeight = valuesAndText[0]
-                .split(' ')
-                .map(Number); //eslint-disable-line max-nested-callbacks
+      const letterHeight = valuesAndText[0]
+        .split(' ')
+        .map(Number); //eslint-disable-line max-nested-callbacks
 
-            const text = valuesAndText[1].split('');
+      const text = valuesAndText[1].split('');
 
-            const actual = calculateTextArea(text, letterHeight);
+      const actual = calculateTextArea(text, letterHeight);
 
-            expect(actual).equals(expected);
+      expect(actual).equals(expected);
 
-        });
-
-        it('zzz => 15', () => {
-            const expected = 15;
-            const input = '1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5\nzzz';
-
-            const valuesAndText = input
-                .split('\n');
-
-            const letterHeight = valuesAndText[0]
-                .split(' ')
-                .map(Number); //eslint-disable-line max-nested-callbacks
-
-            const text = valuesAndText[1].split('');
-
-            const actual = calculateTextArea(text, letterHeight);
-
-            expect(actual).equals(expected);
-
-        });
     });
+
+    it('zzz => 15', () => {
+      const expected = 15;
+      const input = '1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5\nzzz';
+
+      const valuesAndText = input
+        .split('\n');
+
+      const letterHeight = valuesAndText[0]
+        .split(' ')
+        .map(Number); //eslint-disable-line max-nested-callbacks
+
+      const text = valuesAndText[1].split('');
+
+      const actual = calculateTextArea(text, letterHeight);
+
+      expect(actual).equals(expected);
+
+    });
+  });
 
 
 })();

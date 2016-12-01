@@ -44,72 +44,72 @@
  AAABBB  AB, 4 deletions because to convert it to AB we need to delete 2 A's and 2 B's
 */
 import { expect } from 'chai';
-(function () {
+(() => {
 
-    describe('Alternating Characters', () => {
+  describe('Alternating Characters', () => {
 
-        function testExpectation(actual, expected) {
-            for (let iterator = 0; iterator < actual.length; iterator++) {
-                expect(actual[iterator]).to.equal(expected[iterator]);
-            }
+    function testExpectation(actual, expected) {
+      for (let iterator = 0; iterator < actual.length; iterator++) {
+        expect(actual[iterator]).to.equal(expected[iterator]);
+      }
+    }
+
+    function consoleOutput(listOfDeletions) { //eslint-disable-line no-unused-vars
+      for (const countOfDeletions of listOfDeletions) {
+        console.log(countOfDeletions); //eslint-disable-line no-console
+      }
+    }
+
+    function calculateDeletions(entry) {
+      let numberOfDeletions = 0;
+      const charactersInEntry = entry.split('');
+      let currentCharacter;
+
+      for (const character of charactersInEntry) {
+        if (character === currentCharacter) {
+          numberOfDeletions += 1;
+
+        }
+        if (!currentCharacter) {
+          currentCharacter = character[0];
         }
 
-        function consoleOutput(listOfDeletions) { //eslint-disable-line no-unused-vars
-            for (const countOfDeletions of listOfDeletions) {
-                console.log(countOfDeletions); //eslint-disable-line no-console
-            }
-        }
+        currentCharacter = character;
+      }
+      return numberOfDeletions;
+    }
 
-        function calculateDeletions(entry) {
-            let numberOfDeletions = 0;
-            const charactersInEntry = entry.split('');
-            let currentCharacter;
+    function processEntries(entries) {
+      const listOfDeletions = [];
+      for (const stringEntry of entries) {
+        const numberOfDeletions = calculateDeletions(stringEntry);
+        listOfDeletions.push(numberOfDeletions);
+      }
+      return listOfDeletions;
+    }
 
-            for (const character of charactersInEntry) {
-                if (character === currentCharacter) {
-                    numberOfDeletions += 1;
+    it('Default Case:  3, 4, 0, 0, 4', () => {
+      const input = '5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB';
+      const intputArray = input.split('\n');
+      const expected = [3, 4, 0, 0, 4];
+      intputArray.shift();
 
-                }
-                if (!currentCharacter) {
-                    currentCharacter = character[0];
-                }
+      const actual = processEntries(intputArray);
+      testExpectation(actual, expected);
+      // consoleOutput(actual);
 
-                currentCharacter = character;
-            }
-            return numberOfDeletions;
-        }
-
-        function processEntries(entries) {
-            const listOfDeletions = [];
-            for (const stringEntry of entries) {
-                const numberOfDeletions = calculateDeletions(stringEntry);
-                listOfDeletions.push(numberOfDeletions);
-            }
-            return listOfDeletions;
-        }
-
-        it('Default Case:  3, 4, 0, 0, 4', () => {
-            const input = '5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB';
-            const intputArray = input.split('\n');
-            const expected = [3, 4, 0, 0, 4];
-            intputArray.shift();
-
-            const actual = processEntries(intputArray);
-            testExpectation(actual, expected);
-            // consoleOutput(actual);
-
-        });
-
-        it('Personal Case:  0, 6, 0, 0, 6', () => {
-            const input = '5\nAB\nBBBBBBB\nABABABAB\nBABABA\nAAABBBBBAB';
-            const intputArray = input.split('\n');
-            const expected = [0, 6, 0, 0, 6];
-            intputArray.shift();
-
-            const actual = processEntries(intputArray);
-            testExpectation(actual, expected);
-            // consoleOutput(actual);
-
-        });
     });
-}());
+
+    it('Personal Case:  0, 6, 0, 0, 6', () => {
+      const input = '5\nAB\nBBBBBBB\nABABABAB\nBABABA\nAAABBBBBAB';
+      const intputArray = input.split('\n');
+      const expected = [0, 6, 0, 0, 6];
+      intputArray.shift();
+
+      const actual = processEntries(intputArray);
+      testExpectation(actual, expected);
+      // consoleOutput(actual);
+
+    });
+  });
+})();

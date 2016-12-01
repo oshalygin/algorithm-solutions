@@ -25,75 +25,75 @@ arrayPrototypeFind();
 arrayPrototypeIncludes();
 (() => {
 
-    describe('Pangams', () => {
+  describe('Pangams', () => {
 
-        function addUniqueCharacterLettersToCharacterArray(lettersString) {
-            let alphabeticArray = [];
-            for (let index = 0; index < lettersString.length; index++) {
-                const characterCode = lettersString.charCodeAt(index);
+    function addUniqueCharacterLettersToCharacterArray(lettersString) {
+      let alphabeticArray = [];
+      for (let index = 0; index < lettersString.length; index++) {
+        const characterCode = lettersString.charCodeAt(index);
 
-                if (characterCode <= 122 && characterCode >= 97) {
-                    if (!alphabeticArray.includes(characterCode)) {
-                        alphabeticArray = [...alphabeticArray, characterCode];
-                    }
-                }
-            }
-            return alphabeticArray;
+        if (characterCode <= 122 && characterCode >= 97) {
+          if (!alphabeticArray.includes(characterCode)) {
+            alphabeticArray = [...alphabeticArray, characterCode];
+          }
         }
+      }
+      return alphabeticArray;
+    }
 
-        function sanitizeSentence(sentence) {
-            return sentence.toLowerCase()
-                .split(' ')
-                .join('');
-        }
+    function sanitizeSentence(sentence) {
+      return sentence.toLowerCase()
+        .split(' ')
+        .join('');
+    }
 
-        function allAlphabetCharactersExist(arrayOfCharacterCodes) {
-            const numberOfLettersInTheAlphabet = 26;
-            return arrayOfCharacterCodes.length === numberOfLettersInTheAlphabet;
+    function allAlphabetCharactersExist(arrayOfCharacterCodes) {
+      const numberOfLettersInTheAlphabet = 26;
+      return arrayOfCharacterCodes.length === numberOfLettersInTheAlphabet;
 
-        }
+    }
 
-        function consoleOutput(isPangram) { //eslint-disable-line no-unused-vars
-            return isPangram
-                ? console.log('pangram') //eslint-disable-line no-console
-                : console.log('not pangram'); //eslint-disable-line no-console
-        }
+    function consoleOutput(isPangram) { //eslint-disable-line no-unused-vars
+      return isPangram
+        ? console.log('pangram') //eslint-disable-line no-console
+        : console.log('not pangram'); //eslint-disable-line no-console
+    }
 
-        function determineIfPangram(sentence) {
-            const sanitizedString = sanitizeSentence(sentence);
-            const alphabetArray = addUniqueCharacterLettersToCharacterArray(sanitizedString);
+    function determineIfPangram(sentence) {
+      const sanitizedString = sanitizeSentence(sentence);
+      const alphabetArray = addUniqueCharacterLettersToCharacterArray(sanitizedString);
 
-            return allAlphabetCharactersExist(alphabetArray);
-        }
+      return allAlphabetCharactersExist(alphabetArray);
+    }
 
-        it('"The quick brown fox jumps over the lazy dog": is a pangram', () => {
-            const sentence = 'The quick brown fox jumps over the lazy dog';
-            const isPangram = determineIfPangram(sentence);
+    it('"The quick brown fox jumps over the lazy dog": is a pangram', () => {
+      const sentence = 'The quick brown fox jumps over the lazy dog';
+      const isPangram = determineIfPangram(sentence);
 
-            expect(isPangram).to.be.true; //eslint-disable-line no-unused-expressions
-        });
-
-        it('"We promptly judged antique ivory buckles for the next prize": is a pangram', () => {
-            const sentence = 'We promptly judged antique ivory buckles for the next prize';
-            const isPangram = determineIfPangram(sentence);
-
-            expect(isPangram).to.be.true; //eslint-disable-line no-unused-expressions
-        });
-
-        it('"Derp lord": not pangram', () => {
-            const sentence = 'Derp lord';
-            const isNotPangram = determineIfPangram(sentence);
-
-            expect(isNotPangram).to.be.false; //eslint-disable-line no-unused-expressions
-        });
-
-        it('"We promptly judged antique ivory buckles for the prize": not pangram', () => {
-            const sentence = 'We promptly judged antique ivory buckles for the prize';
-            const isNotPangram = determineIfPangram(sentence);
-
-            expect(isNotPangram).to.be.false; //eslint-disable-line no-unused-expressions
-        });
-
+      expect(isPangram).to.be.true; //eslint-disable-line no-unused-expressions
     });
+
+    it('"We promptly judged antique ivory buckles for the next prize": is a pangram', () => {
+      const sentence = 'We promptly judged antique ivory buckles for the next prize';
+      const isPangram = determineIfPangram(sentence);
+
+      expect(isPangram).to.be.true; //eslint-disable-line no-unused-expressions
+    });
+
+    it('"Derp lord": not pangram', () => {
+      const sentence = 'Derp lord';
+      const isNotPangram = determineIfPangram(sentence);
+
+      expect(isNotPangram).to.be.false; //eslint-disable-line no-unused-expressions
+    });
+
+    it('"We promptly judged antique ivory buckles for the prize": not pangram', () => {
+      const sentence = 'We promptly judged antique ivory buckles for the prize';
+      const isNotPangram = determineIfPangram(sentence);
+
+      expect(isNotPangram).to.be.false; //eslint-disable-line no-unused-expressions
+    });
+
+  });
 
 })();

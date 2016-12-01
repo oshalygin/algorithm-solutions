@@ -36,8 +36,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-  ],
+  "plugins": [],
   "rules": {
     "comma-dangle": 2,
     "no-cond-assign": 2,
@@ -138,7 +137,10 @@
     "no-unused-vars": 2,
     "no-use-before-define": 2,
     "no-const-assign": 2,
-    "indent": 0,
+    "indent": [
+      "warn",
+      2
+    ],
     "brace-style": 2,
     "camelcase": 1,
     "comma-spacing": [

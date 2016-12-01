@@ -37,28 +37,28 @@ import { expect } from 'chai';
 
 describe('Between Two Sets', () => {
 
-    function allElementsAreFactors(setValue, factorValue) {
-        if (factorValue % setValue === 0) {
-            return true;
-        }
-        return false;
+  function allElementsAreFactors(setValue, factorValue) {
+    if (factorValue % setValue === 0) {
+      return true;
     }
+    return false;
+  }
 
-    function getFactors(setA, setB) {
-        const result = setB.map(setValue => allElementsAreFactors(setA[0], setValue));
-        console.log(result);
-    }
+  function getFactors(setA, setB) {
+    const result = setB.map(setValue => allElementsAreFactors(setA[0], setValue));
+    console.log(result);
+  }
 
 
-    it('Simple case:  {2,4} & {16,32,96}', () => {
-        const input = '2 3\n2 4\n16 32 96';
-        const setA = input.split('\n')[1].split(' ').map(Number);
-        const setB = input.split('\n')[2].split(' ').map(Number);
+  it('Simple case:  {2,4} & {16,32,96}', () => {
+    const input = '2 3\n2 4\n16 32 96';
+    const setA = input.split('\n')[1].split(' ').map(Number);
+    const setB = input.split('\n')[2].split(' ').map(Number);
 
-        console.log(setA);
-        console.log(setB);
+    console.log(setA);
+    console.log(setB);
 
-        let actual = getFactors(setA, setB);
-        console.log(actual);
-    });
+    let actual = getFactors(setA, setB);
+    console.log(actual);
+  });
 });
