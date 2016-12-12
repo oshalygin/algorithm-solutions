@@ -37,28 +37,43 @@ import { expect } from 'chai';
 
 describe('Between Two Sets', () => {
 
-  function allElementsAreFactors(setValue, factorValue) {
-    if (factorValue % setValue === 0) {
-      return true;
-    }
-    return false;
+  function gcd(firstValue, secondValue) {
+    return (secondValue === 0)
+      ? firstValue
+      : gcd(secondValue, firstValue % secondValue);
   }
 
-  function getFactors(setA, setB) {
-    const result = setB.map(setValue => allElementsAreFactors(setA[0], setValue));
-    console.log(result);
+  function highestCommonFactor(set) {
+    return set.reduce((previous, next) => {
+      return gcd(previous, next);
+    }, 0);
   }
 
+  function getMultiples(number, set) {
+    const values = Array(number)
+      .fill()
+      .map((value, index) => index + 1);
+
+    return values.filter(value => set.every(setValue => !(value % setValue)));
+  }
+
+  function numberOfFactors(underlyingSet, multiples) {
+    return multiples
+      .filter(value => underlyingSet.every(setValue => !(setValue % value)))
+      .length;
+  }
 
   it('Simple case:  {2,4} & {16,32,96}', () => {
+    const expected = 3;
     const input = '2 3\n2 4\n16 32 96';
     const setA = input.split('\n')[1].split(' ').map(Number);
     const setB = input.split('\n')[2].split(' ').map(Number);
 
-    console.log(setA);
-    console.log(setB);
+    const hcf = highestCommonFactor(setB);
+    const multiples = getMultiples(hcf, setA);
+    const actual = numberOfFactors(setB, multiples);
 
-    let actual = getFactors(setA, setB);
-    console.log(actual);
+    expect(actual).equals(expected);
+
   });
 });
