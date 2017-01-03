@@ -45,13 +45,10 @@
 
 import { expect } from 'chai';
 
-
-
 describe('Compare the triplets', () => {
 
   function getScore(firstSet, secondSet) {
     return firstSet.reduce((previous, current, index) => {
-      console.log(secondSet[index])
       if (current > secondSet[index]) {
         return previous + 1;
       }
