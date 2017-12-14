@@ -45,16 +45,20 @@
 */
 import { expect } from 'chai';
 (() => {
-
   describe('Alternating Characters', () => {
-
     function testExpectation(actual, expected) {
-      for (let iterator = 0; iterator < actual.length; iterator++) {
+      for (
+        let iterator = 0;
+        iterator < actual.length;
+        iterator = iterator + 1
+      ) {
         expect(actual[iterator]).to.equal(expected[iterator]);
       }
     }
 
-    function consoleOutput(listOfDeletions) { //eslint-disable-line no-unused-vars
+    //eslint-disable-next-line
+    function consoleOutput(listOfDeletions) {
+      //eslint-disable-line no-unused-vars
       for (const countOfDeletions of listOfDeletions) {
         console.log(countOfDeletions); //eslint-disable-line no-console
       }
@@ -68,7 +72,6 @@ import { expect } from 'chai';
       for (const character of charactersInEntry) {
         if (character === currentCharacter) {
           numberOfDeletions += 1;
-
         }
         if (!currentCharacter) {
           currentCharacter = character[0];
@@ -90,26 +93,24 @@ import { expect } from 'chai';
 
     it('Default Case:  3, 4, 0, 0, 4', () => {
       const input = '5\nAAAA\nBBBBB\nABABABAB\nBABABA\nAAABBB';
-      const intputArray = input.split('\n');
+      const inputArray = input.split('\n');
       const expected = [3, 4, 0, 0, 4];
-      intputArray.shift();
+      inputArray.shift();
 
-      const actual = processEntries(intputArray);
+      const actual = processEntries(inputArray);
       testExpectation(actual, expected);
       // consoleOutput(actual);
-
     });
 
     it('Personal Case:  0, 6, 0, 0, 6', () => {
       const input = '5\nAB\nBBBBBBB\nABABABAB\nBABABA\nAAABBBBBAB';
-      const intputArray = input.split('\n');
+      const inputArray = input.split('\n');
       const expected = [0, 6, 0, 0, 6];
-      intputArray.shift();
+      inputArray.shift();
 
-      const actual = processEntries(intputArray);
+      const actual = processEntries(inputArray);
       testExpectation(actual, expected);
       // consoleOutput(actual);
-
     });
   });
 })();
