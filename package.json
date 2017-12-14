@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "gulp": "gulp",
-    "test": "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec",
+    "test":
+      "mocha tools/testSetup.js \"solutions/**/*.spec.js\" --reporter spec",
     "lint": "./node_modules/.bin/eslint -c .eslintrc solutions --color"
   },
   "repository": {
@@ -18,20 +19,36 @@
     "url": "https://github.com/oshalygin/JavaScriptHackerRank/issues"
   },
   "homepage": "https://github.com/oshalygin/JavaScriptHackerRank#readme",
-  "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.9.1",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "chai": "^3.5.0",
-    "es6-shim": "^0.35.1",
-    "eslint": "^3.4.0",
-    "mocha": "^2.5.3",
-    "webpack": "^1.13.1"
-  },
   "dependencies": {
-    "babel-register": "^6.18.0"
+    "babel-polyfill": "6.26.0",
+    "babel-runtime": "6.26.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.3",
+    "babel-jest": "21.2.0",
+    "babel-loader": "7.1.2",
+    "babel-plugin-react-display-name": "2.0.0",
+    "babel-plugin-syntax-trailing-function-commas": "6.22.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.5",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-latest": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-preset-stage-1": "6.24.1",
+    "babel-regenerator-runtime": "6.5.0",
+    "babel-register": "6.26.0",
+    "babel-template": "6.26.0",
+    "babel-types": "6.24.1",
+    "babel-watch": "2.0.7",
+      "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jest": "21.4.3",
+    "eslint-plugin-prettier": "2.3.1",
+    "eslint-watch": "3.1.3",
+    "prettier": "1.9.2",
+    "jest": "20.0.4"
   }
 }
