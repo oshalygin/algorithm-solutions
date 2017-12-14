@@ -1,13 +1,12 @@
 {
   "env": {
     "es6": true,
-    "browser": true,
     "node": true,
-    "jquery": true,
-    "mocha": true
+    "jest": true
   },
+  "extends": ["prettier"],
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2017,
     "sourceType": "module",
     "ecmaFeatures": {
       "arrowFunctions": true,
@@ -36,12 +35,12 @@
       "jsx": true
     }
   },
-  "plugins": [],
+  "plugins": ["jest", "prettier"],
   "rules": {
-    "comma-dangle": 2,
+    "comma-dangle": 0,
     "no-cond-assign": 2,
     "no-console": 1,
-    "no-constant-condition": 2,
+    "no-constant-condition": 0,
     "no-control-regex": 2,
     "no-debugger": 2,
     "no-dupe-args": 2,
@@ -70,7 +69,7 @@
     "block-scoped-var": 0,
     "complexity": 0,
     "consistent-return": 2,
-    "curly": 2,
+    "curly": ["error", "all"],
     "default-case": 2,
     "dot-notation": 2,
     "eqeqeq": 2,
@@ -113,10 +112,7 @@
     "no-warning-comments": [
       0,
       {
-        "terms": [
-          "todo",
-          "fixme"
-        ],
+        "terms": ["todo", "fixme"],
         "location": "start"
       }
     ],
@@ -134,13 +130,17 @@
     "no-undef": 2,
     "no-undef-init": 2,
     "no-undefined": 1,
-    "no-unused-vars": 2,
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true
+      }
+    ],
     "no-use-before-define": 2,
     "no-const-assign": 2,
-    "indent": [
-      "warn",
-      2
-    ],
+    "indent": ["warn", 2],
     "brace-style": 2,
     "camelcase": 1,
     "comma-spacing": [
@@ -150,14 +150,8 @@
         "after": true
       }
     ],
-    "comma-style": [
-      1,
-      "last"
-    ],
-    "consistent-this": [
-      1,
-      "_this"
-    ],
+    "comma-style": [1, "last"],
+    "consistent-this": [1, "_this"],
     "eol-last": 1,
     "func-names": 0,
     "func-style": 0,
@@ -168,10 +162,7 @@
         "afterColon": true
       }
     ],
-    "max-nested-callbacks": [
-      1,
-      3
-    ],
+    "max-nested-callbacks": [1, 3],
     "new-cap": [
       1,
       {
@@ -181,7 +172,7 @@
     ],
     "new-parens": 1,
     "newline-after-var": 0,
-    "newline-per-chained-call": 1,
+    "newline-per-chained-call": 0,
     "no-array-constructor": 2,
     "array-callback-return": 2,
     "array-bracket-spacing": 1,
@@ -203,18 +194,9 @@
     "no-unneeded-ternary": 1,
     "no-useless-escape": 2,
     "no-useless-constructor": 2,
-    "one-var": [
-      1,
-      "never"
-    ],
-    "operator-assignment": [
-      0,
-      "never"
-    ],
-    "padded-blocks": [
-      0,
-      "never"
-    ],
+    "one-var": [1, "never"],
+    "operator-assignment": [0, "never"],
+    "padded-blocks": [0, "never"],
     "prefer-const": 2,
     "prefer-template": 2,
     "prefer-rest-params": 2,
@@ -222,18 +204,9 @@
     "prefer-arrow-callback": 2,
     "arrow-spacing": 2,
     "template-curly-spacing": 2,
-    "quote-props": [
-      2,
-      "as-needed"
-    ],
-    "quotes": [
-      1,
-      "single"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
+    "quote-props": [2, "as-needed"],
+    "quotes": [1, "single"],
+    "semi": [2, "always"],
     "semi-spacing": [
       1,
       {
@@ -243,17 +216,16 @@
     ],
     "sort-vars": 0,
     "keyword-spacing": 2,
-    "id-length": 2,
-    "space-before-blocks": [
-      2,
-      "always"
+    "id-length": [
+      "error",
+      {
+        "exceptions": ["R"]
+      }
     ],
+    "space-before-blocks": [2, "always"],
     "object-curly-spacing": "off",
     "object-shorthand": 2,
-    "space-in-parens": [
-      1,
-      "never"
-    ],
+    "space-in-parens": [1, "never"],
     "space-infix-ops": 1,
     "space-unary-ops": [
       1,
@@ -265,25 +237,24 @@
     "spaced-comment": "off",
     "wrap-regex": 0,
     "no-var": 2,
-    "generator-star-spacing": [
-      2,
-      "before"
-    ],
-    "max-depth": [
-      2,
-      3
-    ],
-    "max-len": [
-      2,
-      150,
-      2
-    ],
-    "max-params": [
-      2,
-      5
-    ],
+    "generator-star-spacing": ["error", "after"],
+    "max-depth": [2, 3],
+    "max-len": [2, 150, 2],
+    "max-params": [2, 5],
     "max-statements": 0,
     "no-bitwise": 0,
-    "no-plusplus": 0
+    "no-plusplus": 2,
+
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all"
+      }
+    ]
   }
 }
