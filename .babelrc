@@ -1,4 +1,43 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["transform-object-rest-spread"]
+  "presets": ["latest", "stage-1"],
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-object-rest-spread",
+        "syntax-trailing-function-commas",
+
+        [
+          "transform-runtime",
+          {
+            "polyfill": false,
+            "regenerator": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "plugins": [
+        [
+          "transform-runtime",
+          {
+            "polyfill": false,
+            "regenerator": true
+          }
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-object-rest-spread",
+        "syntax-trailing-function-commas",
+        [
+          "transform-runtime",
+          {
+            "polyfill": false,
+            "regenerator": true
+          }
+        ]
+      ]
+    }
+  }
 }
